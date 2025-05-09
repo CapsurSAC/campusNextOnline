@@ -1,0 +1,82 @@
+{
+  "title": "Lesson 3.3: My House and Furniture",
+  "avatarScript": "¡Hola! En esta clase aprenderás cómo describir tu casa y los objetos que hay en ella. Usaremos vocabulario sobre habitaciones, muebles y también aprenderás a usar preposiciones como 'on', 'under', 'next to'. ¡Vamos a recorrer tu casa en inglés!",
+  "dialog": [
+    {
+      "text": "Comencemos con las partes de la casa. Repite conmigo: living room, bedroom, kitchen, bathroom.",
+      "expectedResponse": "living room, bedroom, kitchen, bathroom"
+    },
+    {
+      "text": "Muy bien. Ahora otros lugares: dining room, garden, garage.",
+      "expectedResponse": "dining room, garden, garage"
+    },
+    {
+      "text": "Excelente. Ahora vamos con muebles comunes. Repite: table, chair, bed, sofa.",
+      "expectedResponse": "table, chair, bed, sofa"
+    },
+    {
+      "text": "Y también: fridge, lamp, mirror, TV.",
+      "expectedResponse": "fridge, lamp, mirror, TV"
+    },
+    {
+      "text": "Muy bien. Ahora aprendemos a describir qué hay en una habitación. Usamos: There is (hay uno) y There are (hay varios). Ejemplo: There is a table in the kitchen. Repite.",
+      "expectedResponse": "There is a table in the kitchen"
+    },
+    {
+      "text": "Y para varios: There are four chairs in the dining room. Repite esa frase.",
+      "expectedResponse": "There are four chairs in the dining room"
+    },
+    {
+      "text": "Muy bien. Ahora aprendamos preposiciones de lugar. Repite: on (encima), under (debajo), next to (al lado).",
+      "expectedResponse": "on, under, next to"
+    },
+    {
+      "text": "Un ejemplo: The lamp is on the table. Repite: The lamp is on the table.",
+      "expectedResponse": "The lamp is on the table"
+    },
+    {
+      "text": "Otro: The shoes are under the bed. Repite conmigo: The shoes are under the bed.",
+      "expectedResponse": "The shoes are under the bed"
+    },
+    {
+      "text": "Y uno más: The sofa is next to the window. Repite: The sofa is next to the window.",
+      "expectedResponse": "The sofa is next to the window"
+    },
+    {
+      "text": "Ahora hagamos una práctica. Describe tu dormitorio usando 'there is' y un mueble.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Ahora di qué hay en tu sala usando 'there are'.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Excelente. Vamos con una conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What is in your kitchen?",
+      "expectedResponse": "There is a fridge and a table in my kitchen"
+    },
+    {
+      "text": "Yo pregunto: Where is the bed?",
+      "expectedResponse": "The bed is next to the window"
+    },
+    {
+      "text": "Ahora tú. Pregúntame qué hay en mi sala.",
+      "expectedResponse": "What is in your living room?"
+    },
+    {
+      "text": "Yo respondo: There is a sofa and a TV.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Perfecto. Describe ahora una parte de tu casa usando muebles y preposiciones.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Lo hiciste muy bien! Ya puedes hablar de tu casa, qué hay en ella y dónde están las cosas. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

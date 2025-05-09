@@ -1,0 +1,78 @@
+{
+  "title": "Lesson 4.3: Directions and Places in Town",
+  "avatarScript": "¡Hola! Hoy aprenderás a pedir y dar direcciones en inglés. Usaremos expresiones como 'Go straight', 'Turn left' y hablaremos de lugares comunes como parques, bancos y supermercados. ¡Vamos a recorrer la ciudad juntos!",
+  "dialog": [
+    {
+      "text": "Comencemos con vocabulario de lugares. Repite conmigo: bank, supermarket, post office, park.",
+      "expectedResponse": "bank, supermarket, post office, park"
+    },
+    {
+      "text": "Muy bien. Otros lugares importantes: pharmacy, police station, bus stop, restaurant.",
+      "expectedResponse": "pharmacy, police station, bus stop, restaurant"
+    },
+    {
+      "text": "Ahora aprendamos a dar direcciones. La primera instrucción es: Go straight. Repite: Go straight.",
+      "expectedResponse": "Go straight"
+    },
+    {
+      "text": "Para indicar girar a la izquierda, decimos: Turn left. Repite: Turn left.",
+      "expectedResponse": "Turn left"
+    },
+    {
+      "text": "Y para girar a la derecha: Turn right. Repite: Turn right.",
+      "expectedResponse": "Turn right"
+    },
+    {
+      "text": "Cuando algo está cerca, podemos decir: It’s near here. Repite: It’s near here.",
+      "expectedResponse": "It’s near here"
+    },
+    {
+      "text": "O si está a la vuelta de la esquina: It’s around the corner. Repite: It’s around the corner.",
+      "expectedResponse": "It’s around the corner"
+    },
+    {
+      "text": "Muy bien. Vamos a un ejemplo completo. Yo digo: Go straight and turn right. The bank is on the left. Repite esa instrucción.",
+      "expectedResponse": "Go straight and turn right. The bank is on the left"
+    },
+    {
+      "text": "Ahora te haré preguntas para practicar.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¿Cómo indicarías a alguien que camine recto?",
+      "expectedResponse": "Go straight"
+    },
+    {
+      "text": "¿Y cómo dirías que debe girar a la derecha?",
+      "expectedResponse": "Turn right"
+    },
+    {
+      "text": "Muy bien. Ahora simularemos una conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: Excuse me, where is the supermarket?",
+      "expectedResponse": "Go straight and turn left"
+    },
+    {
+      "text": "Yo pregunto: Is the park near here?",
+      "expectedResponse": "Yes, it’s near here"
+    },
+    {
+      "text": "Ahora tú. Pregúntame cómo llegar a la farmacia.",
+      "expectedResponse": "How do I get to the pharmacy?"
+    },
+    {
+      "text": "Yo respondo: Go straight, pass the bank, and it’s next to the post office.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Describe ahora cómo llegar a un lugar que tú conoces, usando 'go straight', 'turn left' o 'turn right'.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Excelente! Hoy aprendiste a pedir y dar indicaciones en inglés. Sigue practicando dando rutas imaginarias. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

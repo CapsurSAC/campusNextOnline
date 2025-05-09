@@ -1,0 +1,34 @@
+{
+    "title": "Bienvenido a tu clase demo",
+    "avatarScript": "¡Hola! Soy June, tu instructora virtual en NextInglés. Estoy aquí para darte la bienvenida a nuestra plataforma. En esta clase demo, descubrirás cómo será tu experiencia si decides aprender inglés con nosotros.",
+    "dialog": [
+      {
+        "text": "NextInglés es una plataforma 100% virtual con acceso las 24 horas, diseñada para adaptarse a tu ritmo de vida. No importa si trabajas o estudias, puedes aprender desde cualquier lugar con nuestras clases interactivas."
+      },
+      {
+        "text": "Aquí no encontrarás clases aburridas. Tendrás un avatar como yo para guiarte, corregirte, motivarte y hacerte practicar de forma personalizada. Además, cada lección incluye evaluaciones automáticas y ejercicios prácticos."
+      },
+      {
+        "text": "Contamos con tres niveles: básico, intermedio, avanzado. Tú decides tu ritmo, y nosotros te acompañamos con tecnología de última generación."
+      },
+      {
+        "text": "Ahora, hagamos una mini clase. Repite después de mí: Hello! My name is June. I am your English teacher."
+      },
+      {
+        "text": "Muy bien. Ahora di: I want to learn English with NextInglés."
+      },
+      {
+        "text": "Perfecto. Como ves, el sistema te escucha, te guía y te ayuda a mejorar paso a paso."
+      },
+      {
+        "text": "Esta clase demo tiene una duración de 5 minutos. Una vez finalizada, deberás esperar 12 horas para volver a probarla."
+      },
+      {
+        "text": "Si te gustó esta experiencia, no pierdas tiempo. Puedes inscribirte ahora mismo y acceder al curso completo desde el primer módulo."
+      },
+      {
+        "text": "Haz clic en el botón que aparece a continuación para hablar con un asesor por WhatsApp o llenar tu formulario de inscripción. ¡Estoy segura de que te encantará aprender inglés con nosotros!"
+      }
+    ]
+  }
+  

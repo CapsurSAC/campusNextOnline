@@ -1,0 +1,86 @@
+{
+  "title": "Lesson 2.2: Telling the Time",
+  "avatarScript": "¡Hola! Hoy vamos a aprender a decir la hora en inglés. Es una habilidad muy útil para hablar sobre tu rutina, asistir a clases, reuniones o simplemente para llegar a tiempo. Vamos a practicar las expresiones clave como 'o’clock', 'half past', 'quarter to' y más. ¡Comencemos!",
+  "dialog": [
+    {
+      "text": "Comenzamos con lo más básico. Para decir una hora exacta, usamos: o’clock. Por ejemplo: It’s three o’clock. Repite: It’s three o’clock.",
+      "expectedResponse": "It’s three o’clock"
+    },
+    {
+      "text": "Muy bien. Si son las 7 en punto, decimos: It’s seven o’clock.",
+      "expectedResponse": "It’s seven o’clock"
+    },
+    {
+      "text": "Ahora veremos: half past. Esto significa 'y media'. Por ejemplo: It’s half past four. Repite: It’s half past four.",
+      "expectedResponse": "It’s half past four"
+    },
+    {
+      "text": "Perfecto. Ahora practiquemos: quarter past, que es 'y cuarto'. Ejemplo: It’s quarter past five. Repite: It’s quarter past five.",
+      "expectedResponse": "It’s quarter past five"
+    },
+    {
+      "text": "Y ahora: quarter to, que significa 'faltan quince para'. Ejemplo: It’s quarter to six. Repite: It’s quarter to six.",
+      "expectedResponse": "It’s quarter to six"
+    },
+    {
+      "text": "Excelente. Vamos a practicar con otras horas. ¿Cómo dirías 8:30?",
+      "expectedResponse": "It’s half past eight"
+    },
+    {
+      "text": "¿Y 9:15?",
+      "expectedResponse": "It’s quarter past nine"
+    },
+    {
+      "text": "¿Cómo dices 11:45?",
+      "expectedResponse": "It’s quarter to twelve"
+    },
+    {
+      "text": "Muy bien. También puedes decir la hora usando números. Por ejemplo: It’s ten twenty. Repite: It’s ten twenty.",
+      "expectedResponse": "It’s ten twenty"
+    },
+    {
+      "text": "Ahora digamos qué parte del día es. Si es por la mañana, decimos: in the morning. Por ejemplo: It’s eight o’clock in the morning.",
+      "expectedResponse": "It’s eight o’clock in the morning"
+    },
+    {
+      "text": "Si es por la tarde: in the afternoon. Repite: It’s two o’clock in the afternoon.",
+      "expectedResponse": "It’s two o’clock in the afternoon"
+    },
+    {
+      "text": "Y si es por la noche: in the evening. Intenta: It’s seven o’clock in the evening.",
+      "expectedResponse": "It’s seven o’clock in the evening"
+    },
+    {
+      "text": "Muy bien. Vamos a una conversación práctica.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What time is it?",
+      "expectedResponse": "It’s quarter past nine"
+    },
+    {
+      "text": "Yo pregunto: What time do you have lunch?",
+      "expectedResponse": "I have lunch at one o’clock"
+    },
+    {
+      "text": "Ahora tú. Pregúntame qué hora es.",
+      "expectedResponse": "What time is it?"
+    },
+    {
+      "text": "Yo respondo: It’s half past ten.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Excelente! Para terminar, dime a qué hora te despiertas cada día.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Y ahora: ¿A qué hora estudias inglés?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Muy buen trabajo! Hoy aprendiste a decir la hora, usar expresiones comunes y relacionar tus actividades con el horario del día. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "title": "Lesson 1.2: Daily Expressions and Farewells",
+  "avatarScript": "¡Hola de nuevo! En esta lección vamos a aprender expresiones comunes que se usan todos los días. ¿Cómo estás?, ¡Qué gusto conocerte!, y cómo despedirnos en diferentes situaciones. Estas frases te ayudarán a sonar más natural en tus conversaciones. ¿Listo? ¡Empecemos!",
+  "dialog": [
+    {
+      "text": "Vamos a comenzar con una pregunta muy común: ¿Cómo estás? En inglés se dice: How are you? Escucha: How are you?",
+      "expectedResponse": "How are you?"
+    },
+    {
+      "text": "Muy bien. Ahora repite tú: How are you?",
+      "expectedResponse": "How are you?"
+    },
+    {
+      "text": "Excelente. ¿Y cómo podemos responder? Una respuesta simple es: I’m fine, thank you. Repite: I’m fine, thank you.",
+      "expectedResponse": "I’m fine, thank you"
+    },
+    {
+      "text": "Otra forma de responder es: I’m good. Repite conmigo: I’m good.",
+      "expectedResponse": "I’m good"
+    },
+    {
+      "text": "También puedes decir: I’m okay o Not bad. Intenta con: I’m okay.",
+      "expectedResponse": "I’m okay"
+    },
+    {
+      "text": "Y si no te sientes tan bien, puedes decir: I’m tired o I’m not so good. Repite: I’m tired.",
+      "expectedResponse": "I’m tired"
+    },
+    {
+      "text": "Muy bien. Ahora escuchemos este diálogo básico:",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Personaje A dice: Hello! How are you?",
+      "expectedResponse": "I’m good, thank you!"
+    },
+    {
+      "text": "Ahora tú eres el personaje B. Responde a: Hello! How are you?",
+      "expectedResponse": "I’m good, thank you!"
+    },
+    {
+      "text": "¡Muy bien! Ahora practicamos otras expresiones de cortesía. Para decir 'Mucho gusto', puedes usar: Nice to meet you. Repite: Nice to meet you.",
+      "expectedResponse": "Nice to meet you"
+    },
+    {
+      "text": "Otra opción es: Pleased to meet you. Inténtalo: Pleased to meet you.",
+      "expectedResponse": "Pleased to meet you"
+    },
+    {
+      "text": "Y si quieres ser aún más amable puedes decir: It’s a pleasure to meet you. Vamos, repite: It’s a pleasure to meet you.",
+      "expectedResponse": "It’s a pleasure to meet you"
+    },
+    {
+      "text": "Ahora pasamos a las despedidas. Una forma común es: Goodbye. Repite conmigo: Goodbye.",
+      "expectedResponse": "Goodbye"
+    },
+    {
+      "text": "Otra forma más informal es: Bye. Di: Bye.",
+      "expectedResponse": "Bye"
+    },
+    {
+      "text": "Si te verás más tarde con la persona, puedes decir: See you later. Repite: See you later.",
+      "expectedResponse": "See you later"
+    },
+    {
+      "text": "También puedes usar: Take care. Es una despedida amable. Repite: Take care.",
+      "expectedResponse": "Take care"
+    },
+    {
+      "text": "Vamos a practicar un diálogo completo:",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo digo: Hello! How are you?",
+      "expectedResponse": "I’m fine, thank you"
+    },
+    {
+      "text": "Yo digo: Nice to meet you!",
+      "expectedResponse": "Nice to meet you too!"
+    },
+    {
+      "text": "Ahora tú empiezas el diálogo. Saluda y pregunta cómo estoy.",
+      "expectedResponse": "Hello! How are you?"
+    },
+    {
+      "text": "Yo respondo: I’m good, thanks! Y ahora tú dices: Nice to meet you.",
+      "expectedResponse": "Nice to meet you"
+    },
+    {
+      "text": "Y para terminar, di una despedida: Goodbye!",
+      "expectedResponse": "Goodbye!"
+    },
+    {
+      "text": "¡Muy bien! Hoy has aprendido cómo preguntar cómo está alguien, responder de forma amable y despedirte en inglés. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

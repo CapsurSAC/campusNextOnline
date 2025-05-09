@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+  list-style-type: square;
+  margin-left: 30px;
+  padding: 2px;
+}
+
+body {
+  background-image: url('/bgjune.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #1E293B;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.custom-text-muted {
+  color: #f2f2f2;
+  font-weight: 400; /* opcional */
+  font-size: 0.875rem; /* opcional: text-sm */
+}
+
+.input-field {
+  @apply w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:ring-2 focus:ring-[#38BDF8] outline-none;
+}

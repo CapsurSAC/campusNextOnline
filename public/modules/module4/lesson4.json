@@ -1,0 +1,86 @@
+{
+  "title": "Lesson 4.4: Review and Real-Life Conversation Practice",
+  "avatarScript": "¡Hola! En esta última clase del módulo vamos a practicar todo lo que aprendiste: hablar de tu rutina, pedir comida, hacer compras y pedir direcciones. Simularemos situaciones reales para que te sientas más seguro usando tu inglés. ¡Vamos allá!",
+  "dialog": [
+    {
+      "text": "Primero hablemos de tu rutina diaria. ¿A qué hora te despiertas?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. ¿Qué haces después de despertar?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¿A qué hora almuerzas generalmente?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Perfecto. Ahora pasamos a hablar de alimentos. ¿Cuál es tu comida favorita?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¿Qué sueles comer en el desayuno?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Ahora una pequeña simulación en un restaurante.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo digo: Welcome! What would you like to order?",
+      "expectedResponse": "I would like a sandwich, please"
+    },
+    {
+      "text": "Yo pregunto: What would you like to drink?",
+      "expectedResponse": "I would like water, please"
+    },
+    {
+      "text": "Ahora cambiemos de situación. Estás en una tienda. Yo pregunto: How much is the backpack?",
+      "expectedResponse": "It’s twenty dollars"
+    },
+    {
+      "text": "Muy bien. ¿Cómo dirías que quieres comprar una camiseta?",
+      "expectedResponse": "I want to buy a T-shirt"
+    },
+    {
+      "text": "Perfecto. Ahora una práctica de direcciones. Yo pregunto: How do I get to the library?",
+      "expectedResponse": "Go straight and turn right"
+    },
+    {
+      "text": "¿Y cómo indicas que el parque está al lado de la farmacia?",
+      "expectedResponse": "The park is next to the pharmacy"
+    },
+    {
+      "text": "Excelente. Ahora simularemos una conversación completa.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo digo: Hello! What’s your name?",
+      "expectedResponse": "My name is Laura"
+    },
+    {
+      "text": "Yo pregunto: What do you usually do in the morning?",
+      "expectedResponse": "I have breakfast and go to work"
+    },
+    {
+      "text": "Yo pregunto: What’s your favorite food?",
+      "expectedResponse": "My favorite food is pizza"
+    },
+    {
+      "text": "Yo pregunto: How much is a coffee at your favorite café?",
+      "expectedResponse": "It’s three dollars"
+    },
+    {
+      "text": "Yo pregunto: Is there a bank near your house?",
+      "expectedResponse": "Yes, there is"
+    },
+    {
+      "text": "¡Muy bien! Ahora dime, ¿cuál fue tu parte favorita de este módulo?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Fantástico! Has completado el repaso general de este módulo. Recuerda seguir practicando y usando el inglés en tu vida diaria. ¡Nos vemos en el próximo módulo!",
+      "expectedResponse": ""
+    }
+  ]
+}

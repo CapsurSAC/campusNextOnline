@@ -1,0 +1,70 @@
+{
+  "title": "Lesson 4.2: Shopping and Prices",
+  "avatarScript": "¡Hola! En esta clase aprenderás a comprar en inglés. Vas a practicar cómo preguntar precios, decir lo que quieres y entender respuestas comunes. Usaremos frases como 'How much is it?' y 'I want to buy...'. ¡Vamos de compras en inglés!",
+  "dialog": [
+    {
+      "text": "Comencemos con una frase muy importante: How much is it? Repite conmigo: How much is it?",
+      "expectedResponse": "How much is it?"
+    },
+    {
+      "text": "Muy bien. Esa frase significa: ¿Cuánto cuesta? Ahora una respuesta común: It’s five dollars. Repite: It’s five dollars.",
+      "expectedResponse": "It’s five dollars"
+    },
+    {
+      "text": "Si quieres comprar algo, puedes decir: I want to buy a T-shirt. Repite esa frase.",
+      "expectedResponse": "I want to buy a T-shirt"
+    },
+    {
+      "text": "También puedes decir: I’d like a sandwich, please. Repite: I’d like a sandwich, please.",
+      "expectedResponse": "I’d like a sandwich, please"
+    },
+    {
+      "text": "Excelente. Ahora aprende algunos objetos comunes para comprar. Repite: shirt, shoes, jacket, phone.",
+      "expectedResponse": "shirt, shoes, jacket, phone"
+    },
+    {
+      "text": "Y algunos más: apple, juice, notebook, backpack.",
+      "expectedResponse": "apple, juice, notebook, backpack"
+    },
+    {
+      "text": "Ahora vamos a simular una compra. Yo digo: Hello, can I help you?",
+      "expectedResponse": "Yes, I’d like a backpack"
+    },
+    {
+      "text": "Yo pregunto: What color do you want?",
+      "expectedResponse": "I want a blue one"
+    },
+    {
+      "text": "Yo digo: It’s fifteen dollars. Y tú respondes...",
+      "expectedResponse": "Ok, I’ll take it"
+    },
+    {
+      "text": "Muy bien. Ahora tú comienzas: Hello!",
+      "expectedResponse": "Hello!"
+    },
+    {
+      "text": "Yo respondo: Hi! What would you like?",
+      "expectedResponse": "I’d like a sandwich, please"
+    },
+    {
+      "text": "Yo digo: That’s four dollars. Y tú dices...",
+      "expectedResponse": "Here you go"
+    },
+    {
+      "text": "Perfecto. También puedes usar la frase: I don’t have enough money. Repite conmigo: I don’t have enough money.",
+      "expectedResponse": "I don’t have enough money"
+    },
+    {
+      "text": "Ahora dime qué te gustaría comprar hoy.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¿Y cuánto estás dispuesto a pagar? Usa la estructura: I can pay...",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Muy bien! Hoy aprendiste a comprar en inglés, preguntar precios y expresar tus preferencias. ¡Nos vemos en la próxima clase!",
+      "expectedResponse": ""
+    }
+  ]
+}

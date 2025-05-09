@@ -1,0 +1,78 @@
+{
+  "title": "Lesson 2.1: Daily Routines and the Present Simple",
+  "avatarScript": "¡Hola! En esta lección aprenderás a hablar sobre tus rutinas diarias usando el presente simple en inglés. Verás frases como 'I wake up at 7', aprenderás verbos de rutina y cómo formar oraciones afirmativas, negativas y preguntas. ¡Vamos a comenzar!",
+  "dialog": [
+    {
+      "text": "Para empezar, el presente simple se usa para hablar de hábitos o rutinas. Por ejemplo: I wake up at 7. Repite: I wake up at 7.",
+      "expectedResponse": "I wake up at 7"
+    },
+    {
+      "text": "Muy bien. Ahora veremos más acciones comunes en la rutina. Repite después de mí: I get up, I brush my teeth, I take a shower.",
+      "expectedResponse": "I get up, I brush my teeth, I take a shower"
+    },
+    {
+      "text": "Excelente. Seguimos con: I have breakfast, I go to work, I come back home.",
+      "expectedResponse": "I have breakfast, I go to work, I come back home"
+    },
+    {
+      "text": "Muy bien. Ahora combinamos frases. Di: I wake up at 7 and I go to work at 8.",
+      "expectedResponse": "I wake up at 7 and I go to work at 8"
+    },
+    {
+      "text": "Perfecto. Vamos con la estructura básica en afirmativo: sujeto + verbo. Por ejemplo: She works in an office.",
+      "expectedResponse": "She works in an office"
+    },
+    {
+      "text": "Recuerda que con he, she, it, el verbo lleva una -s. Repite: He eats breakfast at 7.",
+      "expectedResponse": "He eats breakfast at 7"
+    },
+    {
+      "text": "Ahora en negativo usamos 'don’t' o 'doesn’t'. Por ejemplo: I don’t watch TV in the morning.",
+      "expectedResponse": "I don’t watch TV in the morning"
+    },
+    {
+      "text": "Para ella diríamos: She doesn’t eat lunch at home. Repite: She doesn’t eat lunch at home.",
+      "expectedResponse": "She doesn’t eat lunch at home"
+    },
+    {
+      "text": "¿Y cómo formamos una pregunta? Usamos Do o Does. Por ejemplo: Do you get up early?",
+      "expectedResponse": "Do you get up early?"
+    },
+    {
+      "text": "O: Does he go to school by bus? Inténtalo tú: Does he go to school by bus?",
+      "expectedResponse": "Does he go to school by bus?"
+    },
+    {
+      "text": "Muy bien. Vamos a practicar una pequeña conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What time do you wake up?",
+      "expectedResponse": "I wake up at 7"
+    },
+    {
+      "text": "Yo pregunto: Do you drink coffee in the morning?",
+      "expectedResponse": "Yes, I do" 
+    },
+    {
+      "text": "Yo pregunto: What time does your friend go to work?",
+      "expectedResponse": "He goes to work at 8"
+    },
+    {
+      "text": "Muy bien. Ahora dime una oración sobre tu rutina usando el presente simple.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Genial. Ahora otra en negativo. Por ejemplo: I don’t watch TV at night.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Y ahora hazme una pregunta usando Do o Does.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Muy bien! Hoy aprendiste a hablar sobre tu rutina diaria usando el presente simple. Recuerda usar los verbos con la forma correcta y practicar todos los días. ¡Nos vemos en la próxima clase!",
+      "expectedResponse": ""
+    }
+  ]
+}

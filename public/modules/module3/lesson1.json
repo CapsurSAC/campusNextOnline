@@ -1,0 +1,86 @@
+{
+  "title": "Lesson 3.1: Describing People (Appearance and Personality)",
+  "avatarScript": "¡Hola! En esta lección vas a aprender cómo describir a las personas: su apariencia física y su personalidad. Usaremos frases como 'She is tall' o 'He has blue eyes'. Practicaremos con vocabulario útil y haremos ejercicios para que puedas hablar de ti y de otras personas. ¡Vamos allá!",
+  "dialog": [
+    {
+      "text": "Para comenzar, aprendamos cómo describir la apariencia. Repite conmigo: tall, short, thin, fat.",
+      "expectedResponse": "tall, short, thin, fat"
+    },
+    {
+      "text": "Muy bien. Ahora otros adjetivos: young, old, pretty, handsome.",
+      "expectedResponse": "young, old, pretty, handsome"
+    },
+    {
+      "text": "Vamos a armar una frase: She is tall. Repite: She is tall.",
+      "expectedResponse": "She is tall"
+    },
+    {
+      "text": "Otra frase: He is short and strong. Intenta decirlo tú.",
+      "expectedResponse": "He is short and strong"
+    },
+    {
+      "text": "Ahora aprendamos a usar 'have' y 'has' para hablar de cabello y ojos. Por ejemplo: She has long hair. Repite conmigo: She has long hair.",
+      "expectedResponse": "She has long hair"
+    },
+    {
+      "text": "Muy bien. Para ojos, puedes decir: He has blue eyes. Repite: He has blue eyes.",
+      "expectedResponse": "He has blue eyes"
+    },
+    {
+      "text": "Más ejemplos: I have short black hair. Repite conmigo.",
+      "expectedResponse": "I have short black hair"
+    },
+    {
+      "text": "Ahora pasamos a la personalidad. Repite estos adjetivos: friendly, shy, serious, funny.",
+      "expectedResponse": "friendly, shy, serious, funny"
+    },
+    {
+      "text": "Una frase útil: She is very friendly. Repite: She is very friendly.",
+      "expectedResponse": "She is very friendly"
+    },
+    {
+      "text": "Otro ejemplo: He is shy but kind. Repite: He is shy but kind.",
+      "expectedResponse": "He is shy but kind"
+    },
+    {
+      "text": "Ahora vamos a describir una persona con todo. Por ejemplo: My brother is tall and has brown eyes. Repite esa frase.",
+      "expectedResponse": "My brother is tall and has brown eyes"
+    },
+    {
+      "text": "¿Cómo describirías a una amiga simpática con cabello largo? Puedes decir: My friend is friendly and has long hair.",
+      "expectedResponse": "My friend is friendly and has long hair"
+    },
+    {
+      "text": "Muy bien. Ahora vamos con una conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What does your sister look like?",
+      "expectedResponse": "She is short and has curly hair"
+    },
+    {
+      "text": "Yo pregunto: Is she funny or serious?",
+      "expectedResponse": "She is funny"
+    },
+    {
+      "text": "Ahora tú me preguntas: What does your friend look like?",
+      "expectedResponse": "What does your friend look like?"
+    },
+    {
+      "text": "Yo respondo: He is tall and has green eyes.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Describe ahora a alguien de tu familia usando dos características físicas.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Ahora describe su personalidad.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Muy bien! Hoy aprendiste a usar 'is', 'has', y muchos adjetivos para describir a las personas. Practica hablando de tus amigos o familiares. ¡Nos vemos en la siguiente clase!",
+      "expectedResponse": ""
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Lesson 2.3: The Days of the Week and Schedule",
+  "avatarScript": "¡Bienvenido! En esta clase aprenderás los días de la semana en inglés y cómo organizar tus actividades usando expresiones como 'on Monday' o 'at night'. También practicaremos cómo hablar de tu horario diario. ¡Empezamos!",
+  "dialog": [
+    {
+      "text": "Comencemos con los días de la semana. Repite conmigo: Monday, Tuesday, Wednesday.",
+      "expectedResponse": "Monday, Tuesday, Wednesday"
+    },
+    {
+      "text": "Muy bien. Ahora sigue: Thursday, Friday, Saturday, Sunday.",
+      "expectedResponse": "Thursday, Friday, Saturday, Sunday"
+    },
+    {
+      "text": "Excelente. ¿Cómo dices 'sábado' en inglés?",
+      "expectedResponse": "Saturday"
+    },
+    {
+      "text": "Y 'miércoles' se dice...",
+      "expectedResponse": "Wednesday"
+    },
+    {
+      "text": "Cuando queremos decir que algo ocurre un día específico, usamos la preposición 'on'. Por ejemplo: I study English on Monday. Repite: I study English on Monday.",
+      "expectedResponse": "I study English on Monday"
+    },
+    {
+      "text": "Muy bien. Ahora tú. ¿Cómo dirías que haces ejercicio los viernes?",
+      "expectedResponse": "I exercise on Friday"
+    },
+    {
+      "text": "Otra expresión importante es 'at night', que usamos para hablar de la noche. Por ejemplo: I read at night. Repite: I read at night.",
+      "expectedResponse": "I read at night"
+    },
+    {
+      "text": "También usamos 'in the morning', 'in the afternoon' y 'in the evening'. Por ejemplo: I have coffee in the morning. Repite esa frase.",
+      "expectedResponse": "I have coffee in the morning"
+    },
+    {
+      "text": "Ahora una pequeña combinación. Di: I go to the gym on Tuesday in the evening.",
+      "expectedResponse": "I go to the gym on Tuesday in the evening"
+    },
+    {
+      "text": "Muy bien. Hablemos de tu agenda. ¿Qué haces el lunes por la mañana?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¿Y qué haces los fines de semana? Puedes responder: On Saturday, I relax.",
+      "expectedResponse": "On Saturday, I relax"
+    },
+    {
+      "text": "Ahora vamos a practicar una conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What do you do on Wednesday?",
+      "expectedResponse": "I study English on Wednesday"
+    },
+    {
+      "text": "Yo pregunto: Do you work on Sundays?",
+      "expectedResponse": "No, I don’t"
+    },
+    {
+      "text": "Muy bien. Ahora tú me preguntas: What do you do on Monday?",
+      "expectedResponse": "What do you do on Monday?"
+    },
+    {
+      "text": "Yo respondo: I teach English classes on Monday.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Ahora dime tres cosas que haces durante la semana y en qué días.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Excelente trabajo! Ahora puedes hablar sobre tu semana y organizar tus actividades en inglés. Practica diciendo tu agenda diaria con las expresiones que aprendimos. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

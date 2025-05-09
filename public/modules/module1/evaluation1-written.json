@@ -1,0 +1,56 @@
+{
+    "title": "Evaluación Escrita: Módulo 1",
+    "questions": [
+      {
+        "question": "¿Cuál es la forma correcta de saludar en inglés por la mañana?",
+        "options": ["Good night", "Good morning", "Goodbye", "Hi"],
+        "correctAnswer": "Good morning"
+      },
+      {
+        "question": "¿Cómo dices 'Mi nombre es' en inglés?",
+        "options": ["I have name", "My name is", "I called", "Name is me"],
+        "correctAnswer": "My name is"
+      },
+      {
+        "question": "¿Qué significa 'Goodbye'?",
+        "options": ["Hola", "Gracias", "Adiós", "Por favor"],
+        "correctAnswer": "Adiós"
+      },
+      {
+        "question": "¿Cuál es la forma contraída de 'I am'?",
+        "options": ["I’m", "I is", "Am I", "I are"],
+        "correctAnswer": "I’m"
+      },
+      {
+        "question": "¿Qué pronombre usamos para 'ella'?",
+        "options": ["He", "It", "She", "They"],
+        "correctAnswer": "She"
+      },
+      {
+        "question": "¿Cómo se deletrea la palabra 'book'?",
+        "options": ["B-U-K", "B-O-K", "B-O-O-K", "B-U-C-K"],
+        "correctAnswer": "B-O-O-K"
+      },
+      {
+        "question": "¿Qué significa 'Nice to meet you'?",
+        "options": ["Encantado de conocerte", "Hasta luego", "¿Cómo estás?", "Buen trabajo"],
+        "correctAnswer": "Encantado de conocerte"
+      },
+      {
+        "question": "¿Qué pronombre se usa para 'nosotros'?",
+        "options": ["You", "They", "We", "He"],
+        "correctAnswer": "We"
+      },
+      {
+        "question": "Selecciona el verbo 'to be' correcto para 'They'",
+        "options": ["They am", "They is", "They are", "They be"],
+        "correctAnswer": "They are"
+      },
+      {
+        "question": "¿Cuál es la forma correcta de decir 'Ella es mi amiga'?",
+        "options": ["She is my friend", "Her is my friend", "She are my friend", "She be my friend"],
+        "correctAnswer": "She is my friend"
+      }
+    ]
+  }
+  

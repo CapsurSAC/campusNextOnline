@@ -1,0 +1,74 @@
+{
+  "title": "Lesson 4.1: Food and Meals",
+  "avatarScript": "¡Hola! Hoy aprenderemos a hablar sobre alimentos, tipos de comidas y nuestras comidas favoritas en inglés. Usaremos frases como 'I like apples' o 'I eat breakfast at 8'. ¡Te va a encantar esta clase porque también practicaremos conversaciones en la mesa! ¡Vamos a comenzar!",
+  "dialog": [
+    {
+      "text": "Empecemos con vocabulario de alimentos. Repite conmigo: bread, rice, chicken, fish, salad.",
+      "expectedResponse": "bread, rice, chicken, fish, salad"
+    },
+    {
+      "text": "Muy bien. Otros alimentos comunes: apple, banana, orange, milk, water.",
+      "expectedResponse": "apple, banana, orange, milk, water"
+    },
+    {
+      "text": "Ahora veamos los nombres de las comidas principales del día. Repite: breakfast, lunch, dinner, snack.",
+      "expectedResponse": "breakfast, lunch, dinner, snack"
+    },
+    {
+      "text": "Muy bien. Para decir que te gusta un alimento, usamos: I like. Por ejemplo: I like pizza. Repite: I like pizza.",
+      "expectedResponse": "I like pizza"
+    },
+    {
+      "text": "Si no te gusta algo, puedes decir: I don’t like. Por ejemplo: I don’t like broccoli. Repite: I don’t like broccoli.",
+      "expectedResponse": "I don’t like broccoli"
+    },
+    {
+      "text": "Ahora vamos a hablar de hábitos de comida. Puedes decir: I eat breakfast at 7. Repite: I eat breakfast at 7.",
+      "expectedResponse": "I eat breakfast at 7"
+    },
+    {
+      "text": "O: I have lunch with my friends. Intenta decirlo tú.",
+      "expectedResponse": "I have lunch with my friends"
+    },
+    {
+      "text": "Cuando quieres pedir algo, puedes decir: I would like a sandwich, please. Repite: I would like a sandwich, please.",
+      "expectedResponse": "I would like a sandwich, please"
+    },
+    {
+      "text": "Muy bien. Vamos a practicar una conversación en un restaurante.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: What would you like to eat?",
+      "expectedResponse": "I would like a hamburger, please"
+    },
+    {
+      "text": "Yo pregunto: What do you drink with lunch?",
+      "expectedResponse": "I drink water"
+    },
+    {
+      "text": "Ahora tú me preguntas: What do you eat for breakfast?",
+      "expectedResponse": "What do you eat for breakfast?"
+    },
+    {
+      "text": "Yo respondo: I eat toast and coffee for breakfast.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Dime ahora cuál es tu comida favorita usando 'My favorite food is...'",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Muy bien! Y ahora dime una comida que no te guste usando 'I don’t like...'",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Excelente. Para terminar, repite esta frase completa: I have lunch at one o’clock and I like eating salad.",
+      "expectedResponse": "I have lunch at one o’clock and I like eating salad"
+    },
+    {
+      "text": "¡Perfecto! Hoy aprendiste a hablar de alimentos, comidas favoritas y hábitos de alimentación. ¡Nos vemos en la siguiente lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Evaluación: Completa los espacios",
+  "language": "en",
+  "instructions": "Lee cada frase y completa el espacio con la palabra correcta. Presta atención a la gramática y al contexto.",
+  "exercises": [
+    {
+      "text": "Yesterday, I went to the park and saw a beautiful ____ flying in the sky.",
+      "answers": ["bird", "kite"],
+      "hint": "Es un objeto que puede volar."
+    },
+    {
+      "text": "My brother is very tall, but I am much ____ than him.",
+      "answers": ["shorter"],
+      "hint": "Comparativo de 'short'."
+    },
+    {
+      "text": "Please remember to bring your umbrella. It looks like it’s going to ____.",
+      "answers": ["rain"],
+      "hint": "Verbo relacionado con el clima."
+    },
+    {
+      "text": "I usually have cereal and milk for ____, but today I had pancakes.",
+      "answers": ["breakfast"],
+      "hint": "Primera comida del día."
+    },
+    {
+      "text": "When the teacher entered the classroom, everyone became very ____.",
+      "answers": ["quiet", "silent"],
+      "hint": "Lo opuesto de 'noisy'."
+    },
+    {
+      "text": "To get to the museum, walk two blocks straight and then turn ____.",
+      "answers": ["left", "right"],
+      "hint": "Dirección que debes tomar."
+    },
+    {
+      "text": "My favorite subject in school is ____, because I enjoy learning about numbers.",
+      "answers": ["math", "mathematics"],
+      "hint": "Materia relacionada con números."
+    },
+    {
+      "text": "After dinner, we washed the dishes and cleaned the entire ____.",
+      "answers": ["kitchen"],
+      "hint": "Lugar donde se cocina."
+    },
+    {
+      "text": "I lost my keys yesterday, but luckily someone ____ them and gave them back.",
+      "answers": ["found"],
+      "hint": "Verbo pasado de 'find'."
+    },
+    {
+      "text": "At the zoo, we saw lions, elephants, and even a baby ____, which was very cute.",
+      "answers": ["giraffe", "monkey", "panda"],
+      "hint": "Animal exótico o tierno."
+    }
+  ]
+}

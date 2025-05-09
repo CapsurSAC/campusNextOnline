@@ -1,0 +1,98 @@
+{
+  "title": "Lesson 1.4: Classroom Language and Commands",
+  "avatarScript": "¡Hola! En esta lección aprenderás frases útiles que se usan dentro del aula. Estas expresiones te permitirán seguir instrucciones, pedir ayuda y entender lo que el profesor dice. Es muy importante que te sientas cómodo usando este vocabulario. ¡Empezamos!",
+  "dialog": [
+    {
+      "text": "Comenzamos con algunas frases básicas del aula. Si no entiendes algo, puedes decir: Can you repeat that? Repite conmigo: Can you repeat that?",
+      "expectedResponse": "Can you repeat that?"
+    },
+    {
+      "text": "Muy bien. También puedes decir: I don’t understand. Repite: I don’t understand.",
+      "expectedResponse": "I don’t understand"
+    },
+    {
+      "text": "Si necesitas ayuda, puedes usar: Can you help me? Inténtalo: Can you help me?",
+      "expectedResponse": "Can you help me?"
+    },
+    {
+      "text": "Ahora vamos con comandos del profesor. Por ejemplo: Open your book. Repite conmigo: Open your book.",
+      "expectedResponse": "Open your book"
+    },
+    {
+      "text": "Otra frase común es: Close your notebook. Repite: Close your notebook.",
+      "expectedResponse": "Close your notebook"
+    },
+    {
+      "text": "Cuando el profesor quiere que escuches, dirá: Listen carefully. Intenta decirlo: Listen carefully.",
+      "expectedResponse": "Listen carefully"
+    },
+    {
+      "text": "Si debes leer en voz alta, te dirán: Read aloud. Repite conmigo: Read aloud.",
+      "expectedResponse": "Read aloud"
+    },
+    {
+      "text": "¿Y si debes escribir algo? Usamos: Write this down. Vamos, repite: Write this down.",
+      "expectedResponse": "Write this down"
+    },
+    {
+      "text": "Muy bien. Ahora combinamos estas frases en una simulación. Yo digo: Open your book on page five.",
+      "expectedResponse": "Ok!"
+    },
+    {
+      "text": "Luego digo: Listen carefully and repeat.",
+      "expectedResponse": "Listen carefully and repeat"
+    },
+    {
+      "text": "Y tú puedes responder con: I don’t understand.",
+      "expectedResponse": "I don’t understand"
+    },
+    {
+      "text": "Perfecto. Vamos a repasar un conjunto de comandos. Repite cada uno después de mí: Stand up.",
+      "expectedResponse": "Stand up"
+    },
+    {
+      "text": "Ahora: Sit down.",
+      "expectedResponse": "Sit down"
+    },
+    {
+      "text": "Muy bien. Otro más: Raise your hand.",
+      "expectedResponse": "Raise your hand"
+    },
+    {
+      "text": "Y uno más: Pay attention.",
+      "expectedResponse": "Pay attention"
+    },
+    {
+      "text": "Ahora un reto. Yo daré las instrucciones como un profesor. Tú debes responder apropiadamente.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Teacher: Close your books, please.",
+      "expectedResponse": "Okay!"
+    },
+    {
+      "text": "Teacher: Listen and repeat: Good morning!",
+      "expectedResponse": "Good morning!"
+    },
+    {
+      "text": "Teacher: Do you understand?",
+      "expectedResponse": "Yes, I understand"
+    },
+    {
+      "text": "Muy bien. Si necesitas pedirle algo al profesor, puedes decir: May I go to the bathroom? Repite: May I go to the bathroom?",
+      "expectedResponse": "May I go to the bathroom?"
+    },
+    {
+      "text": "Excelente. Otras formas útiles de expresarte en clase son: What does this mean? y How do you say... in English? Inténtalo conmigo: What does this mean?",
+      "expectedResponse": "What does this mean?"
+    },
+    {
+      "text": "Y ahora: How do you say 'lapicero' in English?",
+      "expectedResponse": "How do you say 'lapicero' in English?"
+    },
+    {
+      "text": "¡Perfecto! Ahora que conoces las frases del aula, te sentirás más seguro al participar. Recuerda usarlas con frecuencia. ¡Nos vemos en la próxima unidad!",
+      "expectedResponse": ""
+    }
+  ]
+}

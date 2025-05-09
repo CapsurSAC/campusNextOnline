@@ -1,0 +1,94 @@
+{
+  "title": "Lesson 1.3: Numbers and Dates",
+  "avatarScript": "¡Bienvenido a una nueva lección! Hoy aprenderemos a usar los números en inglés, cómo decir la fecha, los días de la semana y los meses del año. Esto te ayudará a hablar de cumpleaños, citas importantes y horarios. ¡Vamos paso a paso!",
+  "dialog": [
+    {
+      "text": "Empezamos con los números del 1 al 10. Repite después de mí: One, Two, Three, Four, Five.",
+      "expectedResponse": "One, Two, Three, Four, Five"
+    },
+    {
+      "text": "Muy bien. Ahora continúa: Six, Seven, Eight, Nine, Ten.",
+      "expectedResponse": "Six, Seven, Eight, Nine, Ten"
+    },
+    {
+      "text": "Excelente. Sigamos hasta el veinte: Eleven, Twelve, Thirteen, Fourteen, Fifteen.",
+      "expectedResponse": "Eleven, Twelve, Thirteen, Fourteen, Fifteen"
+    },
+    {
+      "text": "Ahora: Sixteen, Seventeen, Eighteen, Nineteen, Twenty.",
+      "expectedResponse": "Sixteen, Seventeen, Eighteen, Nineteen, Twenty"
+    },
+    {
+      "text": "Muy bien. ¿Listo para practicar? ¿Cómo se dice 7 en inglés?",
+      "expectedResponse": "Seven"
+    },
+    {
+      "text": "Correcto. Ahora pasamos a los números ordinales. Estos indican posición. Por ejemplo: primero, segundo, tercero. En inglés decimos: First, Second, Third.",
+      "expectedResponse": "First, Second, Third"
+    },
+    {
+      "text": "Repite otros más: Fourth, Fifth, Sixth, Seventh.",
+      "expectedResponse": "Fourth, Fifth, Sixth, Seventh"
+    },
+    {
+      "text": "Muy bien. Ahora vamos con los días de la semana. Empieza conmigo: Monday, Tuesday, Wednesday.",
+      "expectedResponse": "Monday, Tuesday, Wednesday"
+    },
+    {
+      "text": "Sigue con: Thursday, Friday, Saturday, Sunday.",
+      "expectedResponse": "Thursday, Friday, Saturday, Sunday"
+    },
+    {
+      "text": "Perfecto. ¿Cómo dices 'miércoles' en inglés?",
+      "expectedResponse": "Wednesday"
+    },
+    {
+      "text": "Ahora repasemos los meses del año. Repite: January, February, March, April.",
+      "expectedResponse": "January, February, March, April"
+    },
+    {
+      "text": "Continúa: May, June, July, August.",
+      "expectedResponse": "May, June, July, August"
+    },
+    {
+      "text": "Y por último: September, October, November, December.",
+      "expectedResponse": "September, October, November, December"
+    },
+    {
+      "text": "Ahora vamos a aprender cómo decir la fecha. Por ejemplo: Today is July 5th. Intenta decirlo tú: Today is July 5th.",
+      "expectedResponse": "Today is July 5th"
+    },
+    {
+      "text": "Excelente. ¿Cómo dirías que tu cumpleaños es el 21 de marzo? Puedes decir: My birthday is on March 21st.",
+      "expectedResponse": "My birthday is on March 21st"
+    },
+    {
+      "text": "Muy bien. Vamos con algunos ejercicios. ¿Cómo se dice 15 en inglés?",
+      "expectedResponse": "Fifteen"
+    },
+    {
+      "text": "¿Y el día 'sábado'?",
+      "expectedResponse": "Saturday"
+    },
+    {
+      "text": "Vamos a practicar un diálogo. Yo digo: What day is it today?",
+      "expectedResponse": "Today is Wednesday"
+    },
+    {
+      "text": "Muy bien. Ahora yo digo: When is your birthday?",
+      "expectedResponse": "My birthday is on September 10th"
+    },
+    {
+      "text": "Último ejercicio. Tú me preguntas qué día es hoy.",
+      "expectedResponse": "What day is it today?"
+    },
+    {
+      "text": "Y yo te respondo: Today is Friday. ¡Muy buen trabajo!",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Hoy has aprendido los números, los días, los meses y a decir fechas. Practica con tu calendario personal. ¡Nos vemos en la siguiente lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

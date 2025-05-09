@@ -1,0 +1,118 @@
+{
+  "title": "Lesson 1.1: Greetings and Introductions",
+  "avatarScript": "¡Hola! Bienvenido a tu primera clase de inglés. En esta lección aprenderás a saludar, presentarte, despedirte y también a usar los pronombres personales con el verbo 'to be'. ¡Estoy aquí para ayudarte en cada paso! ¿Listo? Comencemos.",
+  "dialog": [
+    {
+      "text": "Para empezar, te voy a enseñar los saludos más comunes en inglés. El más básico y universal es: Hello. Escucha cómo se pronuncia: Hello.",
+      "expectedResponse": "Hello"
+    },
+    {
+      "text": "Muy bien. Ahora tú: dilo con seguridad: Hello.",
+      "expectedResponse": "Hello"
+    },
+    {
+      "text": "Ahora probemos con: Hi. Es una forma informal y muy común. Repite conmigo: Hi.",
+      "expectedResponse": "Hi"
+    },
+    {
+      "text": "Perfecto. Si saludas por la mañana, dirás: Good morning. Inténtalo: Good morning.",
+      "expectedResponse": "Good morning"
+    },
+    {
+      "text": "Por la tarde decimos: Good afternoon. ¿Puedes repetirlo?",
+      "expectedResponse": "Good afternoon"
+    },
+    {
+      "text": "Y cuando cae la noche, decimos: Good evening. Vamos, inténtalo: Good evening.",
+      "expectedResponse": "Good evening"
+    },
+    {
+      "text": "Para despedirte puedes usar: Goodbye o simplemente Bye. Prueba con: Goodbye.",
+      "expectedResponse": "Goodbye"
+    },
+    {
+      "text": "También puedes decir: See you later. Repite conmigo: See you later.",
+      "expectedResponse": "See you later"
+    },
+    {
+      "text": "Muy bien. Vamos a pasar a las presentaciones. Para decir 'Mi nombre es', usamos: My name is. Repite conmigo: My name is.",
+      "expectedResponse": "My name is"
+    },
+    {
+      "text": "Ahora agrega tu nombre. Por ejemplo: My name is Carlos.",
+      "expectedResponse": "My name is Carlos"
+    },
+    {
+      "text": "Otra forma de presentarte es usando el verbo 'to be': I am. Por ejemplo: I am Carlos. Repite: I am Carlos.",
+      "expectedResponse": "I am Carlos"
+    },
+    {
+      "text": "En inglés, usamos contracciones para sonar más natural. En lugar de 'I am', decimos: I'm. Inténtalo: I’m Carlos.",
+      "expectedResponse": "I’m Carlos"
+    },
+    {
+      "text": "Muy bien. Para responder con gusto a una presentación, usamos: Nice to meet you. Repite conmigo: Nice to meet you.",
+      "expectedResponse": "Nice to meet you"
+    },
+    {
+      "text": "Perfecto. Vamos a hacer un mini diálogo. Yo digo: Hello! My name is Emma. Nice to meet you. Y tú debes responder: Hello! My name is Carlos. Nice to meet you too.",
+      "expectedResponse": "Hello! My name is Carlos. Nice to meet you too"
+    },
+    {
+      "text": "Excelente. Ahora vamos a aprender los pronombres personales. El primero es 'I', que significa 'yo'. Repite: I.",
+      "expectedResponse": "I"
+    },
+    {
+      "text": "El siguiente es 'you', que significa 'tú' o 'usted'. Di: You.",
+      "expectedResponse": "You"
+    },
+    {
+      "text": "Ahora seguimos con: he (él), she (ella), it (eso, para objetos o animales). Repite: he, she, it.",
+      "expectedResponse": "he, she, it"
+    },
+    {
+      "text": "Muy bien. Ahora los plurales: we (nosotros), you (ustedes), they (ellos o ellas). Repite: we, you, they.",
+      "expectedResponse": "we, you, they"
+    },
+    {
+      "text": "Perfecto. Ahora vamos a practicar el verbo 'to be'. Repite conmigo: I am, you are, he is, she is, it is, we are, you are, they are.",
+      "expectedResponse": "I am, you are, he is, she is, it is, we are, you are, they are"
+    },
+    {
+      "text": "Genial. Vamos a armar frases: I am a student. Repite: I am a student.",
+      "expectedResponse": "I am a student"
+    },
+    {
+      "text": "Ahora tú. Di: She is my friend.",
+      "expectedResponse": "She is my friend"
+    },
+    {
+      "text": "Muy bien. Ahora vamos con un poco de alfabeto. El abecedario en inglés empieza con: A, B, C. Repite conmigo: A, B, C.",
+      "expectedResponse": "A, B, C"
+    },
+    {
+      "text": "Sigamos: D, E, F, G.",
+      "expectedResponse": "D, E, F, G"
+    },
+    {
+      "text": "Excelente. Vamos a deletrear tu nombre. Por ejemplo: Laura, se deletrea L-A-U-R-A. ¿Puedes intentarlo con tu nombre?",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Ahora vamos a revisar todo lo aprendido en un diálogo. Yo diré: Hello! What’s your name?",
+      "expectedResponse": "My name is Carlos"
+    },
+    {
+      "text": "Yo digo: Nice to meet you, Carlos.",
+      "expectedResponse": "Nice to meet you too"
+    },
+    {
+      "text": "Última práctica. Tú inicias la conversación esta vez.",
+      "expectedResponse": "Hello! My name is Carlos"
+    },
+    {
+      "text": "¡Excelente trabajo! Hoy aprendiste a saludar, presentarte, despedirte, usar el verbo 'to be', los pronombres personales y el abecedario. ¡Nos vemos en la siguiente lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

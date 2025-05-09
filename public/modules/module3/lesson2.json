@@ -1,0 +1,74 @@
+{
+  "title": "Lesson 3.2: Family Members and Possessives",
+  "avatarScript": "¡Hola! Hoy vamos a aprender cómo hablar de nuestra familia en inglés. Vas a conocer el vocabulario para los miembros de la familia y cómo usar los posesivos como 'my', 'his', 'her' y el uso de ’s para mostrar pertenencia. ¡Empezamos con entusiasmo!",
+  "dialog": [
+    {
+      "text": "Comencemos con los miembros de la familia. Repite conmigo: father, mother, brother, sister.",
+      "expectedResponse": "father, mother, brother, sister"
+    },
+    {
+      "text": "Muy bien. Ahora otros más: grandfather, grandmother, uncle, aunt.",
+      "expectedResponse": "grandfather, grandmother, uncle, aunt"
+    },
+    {
+      "text": "Perfecto. Más vocabulario: cousin, son, daughter, parents.",
+      "expectedResponse": "cousin, son, daughter, parents"
+    },
+    {
+      "text": "Ahora pasemos a los posesivos. Cuando hablas de algo tuyo, usas: my. Por ejemplo: My mother is kind. Repite: My mother is kind.",
+      "expectedResponse": "My mother is kind"
+    },
+    {
+      "text": "Cuando hablas de algo de otra persona, usas 'his' para él y 'her' para ella. Por ejemplo: His name is John. Repite: His name is John.",
+      "expectedResponse": "His name is John"
+    },
+    {
+      "text": "Y para ella decimos: Her name is Anna. Repite: Her name is Anna.",
+      "expectedResponse": "Her name is Anna"
+    },
+    {
+      "text": "Muy bien. También usamos ’s para indicar pertenencia. Por ejemplo: This is my brother’s car. Repite esa frase.",
+      "expectedResponse": "This is my brother’s car"
+    },
+    {
+      "text": "Otro ejemplo: My sister’s name is Laura. Inténtalo tú: My sister’s name is Laura.",
+      "expectedResponse": "My sister’s name is Laura"
+    },
+    {
+      "text": "Ahora yo digo: This is John’s book. ¿Puedes repetirlo?",
+      "expectedResponse": "This is John’s book"
+    },
+    {
+      "text": "Excelente. Vamos con una pequeña conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: Who is he?",
+      "expectedResponse": "He is my father"
+    },
+    {
+      "text": "Yo pregunto: What’s your sister’s name?",
+      "expectedResponse": "Her name is Sofia"
+    },
+    {
+      "text": "Ahora tú me preguntas: What’s your brother’s name?",
+      "expectedResponse": "What’s your brother’s name?"
+    },
+    {
+      "text": "Yo respondo: His name is Carlos.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Describe ahora a dos personas de tu familia usando 'my', 'his' o 'her'.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Y ahora escribe una frase con ’s. Por ejemplo: This is my cousin’s dog.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Genial! Hoy aprendiste cómo hablar de tu familia y cómo usar los posesivos correctamente. Recuerda practicar describiendo a tus seres queridos. ¡Nos vemos en la próxima lección!",
+      "expectedResponse": ""
+    }
+  ]
+}

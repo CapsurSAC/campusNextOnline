@@ -1,0 +1,78 @@
+{
+  "title": "Lesson 2.4: Talking About Frequency",
+  "avatarScript": "¡Hola! Hoy aprenderemos a hablar sobre la frecuencia con la que hacemos cosas. Usaremos palabras como 'always', 'sometimes', 'never', entre otras. Estas expresiones son muy útiles para describir tu rutina. ¿Listo para empezar? ¡Vamos!",
+  "dialog": [
+    {
+      "text": "Empecemos con algunos adverbios de frecuencia. Repite conmigo: always, usually, sometimes, rarely, never.",
+      "expectedResponse": "always, usually, sometimes, rarely, never"
+    },
+    {
+      "text": "Perfecto. 'Always' significa siempre. Por ejemplo: I always wake up at 6. Repite esa frase.",
+      "expectedResponse": "I always wake up at 6"
+    },
+    {
+      "text": "'Usually' significa usualmente. Ejemplo: I usually have coffee in the morning. Repite: I usually have coffee in the morning.",
+      "expectedResponse": "I usually have coffee in the morning"
+    },
+    {
+      "text": "'Sometimes' significa a veces. Di: I sometimes watch TV at night.",
+      "expectedResponse": "I sometimes watch TV at night"
+    },
+    {
+      "text": "'Rarely' significa raramente. Repite: I rarely eat fast food.",
+      "expectedResponse": "I rarely eat fast food"
+    },
+    {
+      "text": "Y 'never' significa nunca. Por ejemplo: I never smoke. Repite: I never smoke.",
+      "expectedResponse": "I never smoke"
+    },
+    {
+      "text": "Muy bien. Estos adverbios van antes del verbo principal. Por ejemplo: I always study at night. Repite esa frase.",
+      "expectedResponse": "I always study at night"
+    },
+    {
+      "text": "En tercera persona, como 'he' o 'she', también usamos los adverbios. Por ejemplo: She usually walks to work. Repite: She usually walks to work.",
+      "expectedResponse": "She usually walks to work"
+    },
+    {
+      "text": "Ahora vamos a practicar. ¿Cómo dirías: 'Yo nunca llego tarde'?",
+      "expectedResponse": "I never arrive late"
+    },
+    {
+      "text": "¿Y cómo dices: 'Él siempre desayuna a las 8'?",
+      "expectedResponse": "He always has breakfast at 8"
+    },
+    {
+      "text": "Muy bien. Ahora una conversación.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: How often do you exercise?",
+      "expectedResponse": "I usually exercise in the morning"
+    },
+    {
+      "text": "Yo pregunto: Do you always go to bed at 10?",
+      "expectedResponse": "No, I sometimes go to bed later"
+    },
+    {
+      "text": "Ahora tú me preguntas: How often do you work on weekends?",
+      "expectedResponse": "How often do you work on weekends?"
+    },
+    {
+      "text": "Yo respondo: I rarely work on weekends.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Ahora dime tres cosas que haces frecuentemente y con qué adverbio.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Y ahora una cosa que nunca haces.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Excelente trabajo! Ahora puedes describir tu rutina con mayor detalle usando adverbios de frecuencia. Recuerda practicarlos en voz alta. ¡Nos vemos en el próximo módulo!",
+      "expectedResponse": ""
+    }
+  ]
+}

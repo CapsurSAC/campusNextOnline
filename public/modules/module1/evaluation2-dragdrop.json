@@ -1,0 +1,26 @@
+{
+    "title": "Evaluación: Forma la oración correcta",
+    "exercises": [
+      {
+        "sentence": "My name is Sarah",
+        "scrambled": ["Sarah", "My", "name", "is"]
+      },
+      {
+        "sentence": "I am a student",
+        "scrambled": ["a", "student", "I", "am"]
+      },
+      {
+        "sentence": "Good morning everyone",
+        "scrambled": ["morning", "Good", "everyone"]
+      },
+      {
+        "sentence": "You are my friend",
+        "scrambled": ["friend", "my", "are", "You"]
+      },
+      {
+        "sentence": "She is a teacher",
+        "scrambled": ["is", "a", "She", "teacher"]
+      }
+    ]
+  }
+  

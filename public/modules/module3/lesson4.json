@@ -1,0 +1,74 @@
+{
+  "title": "Lesson 3.4: There is / There are + Places",
+  "avatarScript": "¡Hola! Hoy vamos a aprender a describir lugares y lo que hay en ellos usando 'There is' y 'There are'. Usaremos palabras como park, school, restaurant y aprenderemos a dar más detalles sobre ubicaciones. ¡Vamos a explorar tu ciudad en inglés!",
+  "dialog": [
+    {
+      "text": "Comencemos con vocabulario de lugares. Repite conmigo: park, school, hospital, supermarket.",
+      "expectedResponse": "park, school, hospital, supermarket"
+    },
+    {
+      "text": "Muy bien. Ahora otros lugares: library, restaurant, museum, bank.",
+      "expectedResponse": "library, restaurant, museum, bank"
+    },
+    {
+      "text": "Perfecto. Para decir que algo existe en un lugar, usamos 'There is' para singular. Por ejemplo: There is a park near my house. Repite: There is a park near my house.",
+      "expectedResponse": "There is a park near my house"
+    },
+    {
+      "text": "Cuando hablamos de varios lugares o cosas, usamos 'There are'. Por ejemplo: There are two restaurants downtown. Repite esa frase.",
+      "expectedResponse": "There are two restaurants downtown"
+    },
+    {
+      "text": "Ahora practica tú. ¿Cómo dirías: Hay una biblioteca en mi barrio?",
+      "expectedResponse": "There is a library in my neighborhood"
+    },
+    {
+      "text": "¿Y cómo dirías: Hay tres supermercados en la ciudad?",
+      "expectedResponse": "There are three supermarkets in the city"
+    },
+    {
+      "text": "Muy bien. Vamos a agregar ubicación usando preposiciones como near (cerca), next to (al lado), across from (enfrente).",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Un ejemplo: The school is next to the park. Repite: The school is next to the park.",
+      "expectedResponse": "The school is next to the park"
+    },
+    {
+      "text": "Otro ejemplo: The bank is across from the supermarket. Repite: The bank is across from the supermarket.",
+      "expectedResponse": "The bank is across from the supermarket"
+    },
+    {
+      "text": "Muy bien. Vamos a una práctica guiada.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Yo pregunto: Is there a hospital near your house?",
+      "expectedResponse": "Yes, there is"
+    },
+    {
+      "text": "Yo pregunto: Are there any parks in your neighborhood?",
+      "expectedResponse": "Yes, there are"
+    },
+    {
+      "text": "Ahora tú me preguntas: Is there a supermarket near here?",
+      "expectedResponse": "Is there a supermarket near here?"
+    },
+    {
+      "text": "Yo respondo: Yes, there is one across the street.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Describe ahora un lugar de tu ciudad usando 'There is' o 'There are'.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "Muy bien. Describe su ubicación usando near, next to o across from.",
+      "expectedResponse": ""
+    },
+    {
+      "text": "¡Perfecto! Ahora puedes describir tu ciudad o tu barrio en inglés. Sigue practicando usando frases con 'There is' y 'There are'. ¡Nos vemos en el siguiente módulo!",
+      "expectedResponse": ""
+    }
+  ]
+}
