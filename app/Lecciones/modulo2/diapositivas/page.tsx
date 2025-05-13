@@ -6,20 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const pdfs = [
   {
-    title: 'Daily Routines and the Present Simple',
-    file: '/slides/lesson2/Leccion-21.pdf',
+    title: 'Introducción al Inglés',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'Telling the Time',
-    file: '/slides/lesson2/Leccion-22.pdf',
+    title: 'Saludos y Presentaciones',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'The Days of the Week and Schedule',
-    file: '/slides/lesson2/Leccion-23.pdf',
-  },
-  {
-    title: 'Talking About Frequency',
-    file: '/slides/lesson2/Leccion-24.pdf',
+    title: 'Vocabulario Diario',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
 ];
 

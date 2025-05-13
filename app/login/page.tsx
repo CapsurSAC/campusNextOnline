@@ -5,27 +5,59 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+const jwt_decode = require('jwt-decode') as (token: string) => any;
 
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
-  // Solución al error de Hydration
   useEffect(() => {
     setIsClient(true);
+     const token = localStorage.getItem('token');
+  if (token) {
+    try {
+      const decoded = jwt_decode(token) as any;
+      if (decoded && decoded.exp * 1000 > Date.now()) {
+        router.push('/'); // 👈 redirige si el token es válido
+      }
+    } catch (err) {
+      localStorage.removeItem('token');
+    }
+  }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      router.push('/');
-    }, 1000);
+    const emailInput = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
+    const passwordInput = (e.currentTarget.elements.namedItem('password') as HTMLInputElement).value;
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: emailInput, contraseña: passwordInput })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Error al iniciar sesión');
+      }
+
+      localStorage.setItem('token', data.token); // Guardar token
+      router.push('/'); // Redirige después del login
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // No renderizar nada en el servidor para evitar el error de hidratación
   if (!isClient) return null;
 
   return (
@@ -76,6 +108,7 @@ export default function LoginPage() {
             <input
               id="email"
               type="email"
+              name="email"
               required
               placeholder="tucorreo@ejemplo.com"
               className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:ring-2 focus:ring-[#38BDF8] focus:outline-none"
@@ -88,6 +121,7 @@ export default function LoginPage() {
             <input
               id="password"
               type="password"
+              name="password"
               required
               placeholder="********"
               className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:ring-2 focus:ring-[#38BDF8] focus:outline-none"

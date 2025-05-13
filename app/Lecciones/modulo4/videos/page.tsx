@@ -5,22 +5,22 @@ import { FiPlayCircle } from 'react-icons/fi';
 
 const videos = [
   {
-    title: 'Food and Meals',
-    url: 'https://www.youtube.com/embed/gQXnk2UeD8k?si=zOpdrPHRGDROUU97',
+    title: 'Presentaciones en inglés',
+    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Aprende a presentarte correctamente en distintos contextos.',
   },
   {
-    title: 'Shopping and Prices',
-    url: 'https://www.youtube.com/embed/NW78LJX30M8?si=bLGQOK9K0S4GD_Rf',
+    title: 'Saludos y despedidas',
+    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Frases básicas para empezar y cerrar una conversación.',
   },
   {
-    title: 'Directions and Places in Town',
+    title: 'Preguntas comunes',
     url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Expresiones para preguntar en inglés de forma simple.',
   },
   {
-    title: 'Review and Real-Life Conversation Practice',
+    title: 'Vocabulario para el día a día',
     url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Palabras clave para comunicarte en situaciones cotidianas.',
   },

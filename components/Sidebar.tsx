@@ -1,4 +1,5 @@
 'use client';
+import { useUsuario } from '@/lib/hooks/useUsuario';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,6 +14,8 @@ import {
 } from 'lucide-react';
 
 export default function SidebarContent() {
+  const usuario = useUsuario();
+
   return (
     <div className="flex flex-col h-full justify-between">
       <div>
@@ -27,6 +30,12 @@ export default function SidebarContent() {
                 height={80}
                 className="object-cover"
               />
+              {usuario && (
+                <p className="text-white text-sm text-center mt-1">
+                  {usuario.email} ({usuario.rol})
+                </p>
+              )}
+
             </div>
           </Link>
           
@@ -46,7 +55,13 @@ export default function SidebarContent() {
       {/* Acciones abajo */}
       <div className="flex flex-col px-4 pb-4 gap-2 mt-6 border-t border-white/10 pt-4">
 
-        <button className="flex items-center gap-3 text-red-500 hover:text-white hover:bg-red-600 px-3 py-2 rounded transition">
+        <button
+          onClick={() => {
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+          }}
+          className="flex items-center gap-3 text-red-500 hover:text-white hover:bg-red-600 px-3 py-2 rounded transition"
+        >
           <LogOut size={20} />
           <span>Cerrar sesión</span>
         </button>

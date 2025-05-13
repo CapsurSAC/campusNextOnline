@@ -1,66 +1,32 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 
+import { useUsuario } from '@/lib/hooks/useUsuario';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { modules } from '@/app/data/modules';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
-  const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowVideo(true), 800);
+  const usuario = useUsuario();
+const router = useRouter();
+useEffect(() => {
+  if (!usuario) {
+    const timer = setTimeout(() => {
+      router.push('/login');
+    }, 800);
     return () => clearTimeout(timer);
-  }, []);
-  
+  }
+}, [usuario]);
+if (!usuario) return null;
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleCloseVideo();
-    };
-    if (showVideo) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [showVideo]);
-
-  const handleCloseVideo = () => {
-    setShowVideo(false);
-    localStorage.setItem('mentoraVideoSeen', 'true');
-  };
   return (
+    
     <main className="px-6 pt-4 pb-10 min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-   {showVideo && (
-      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-        <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[380px] rounded-xl overflow-hidden shadow-2xl bg-transparent">
-          <button
-            onClick={handleCloseVideo}
-            className="absolute top-2 right-3 text-white text-2xl font-bold z-10 hover:text-red-500"
-            aria-label="Cerrar video"
-          >
-            ✕
-          </button>
-          <video
-            autoPlay
-            controls
-            playsInline
-            className="w-full h-auto rounded-xl bg-black object-cover"
-            style={{ aspectRatio: '9/16' }}
-          >
-            <source src="/videos/mentora-june.mp4" type="video/mp4" />
-            Tu navegador no soporta el video.
-          </video>
-        </div>
-      </div>
-    )}
-
-
-
-
       {/* Encabezado */}
+
+      
       <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -6,20 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const pdfs = [
   {
-    title: 'Talking About Frequency',
-    file: '/slides/lesson3/Leccion-31',
+    title: 'Introducción al Inglés',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'Family Members and Possessives',
-    file: '/slides/lesson3/Leccion-32',
+    title: 'Saludos y Presentaciones',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'My House and Furniture',
-    file: '/slides/lesson3/Leccion-33',
-  },
-  {
-    title: 'There is / There are + Places',
-    file: '/slides/lesson3/Leccion-34',
+    title: 'Vocabulario Diario',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
 ];
 

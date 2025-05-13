@@ -6,25 +6,25 @@ import { FiPlayCircle } from 'react-icons/fi';
 
 const videos = [
   {
-    title: 'Greetings and Introductions',
-    url: 'https://www.youtube.com/embed/qFr0eIcbZtA?si=BHh41zKEdIjmdCBF',
+    title: 'Presentaciones en inglés',
+    url: 'https://www.youtube.com/embed/cHGOot0I7OU?si=XKbVIPueS6MzDw39',
     description: 'Aprende a presentarte correctamente en distintos contextos.',
   },
   {
-    title: 'Daily Expressions and Farewells',
-    url: 'https://www.youtube.com/embed/ToYfUrsFs0w?si=XfNFcJ5LVlUmPo8Y',
+    title: 'Saludos y despedidas',
+    url: 'https://www.youtube.com/embed/7y9O-erWs0Q?si=XKq1_2XP-ohHegy6',
     description: 'Frases básicas para empezar y cerrar una conversación.',
 
 
   },
   {
-    title: 'Numbers and Dates',
-    url: 'https://www.youtube.com/embed/MyCs8v5p1Ro?si=2tUyT-BJ1YJiSk9o',
+    title: 'Preguntas comunes',
+    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Expresiones para preguntar en inglés de forma simple.',
   },
   {
-    title: 'Classroom Language and Commands',
-    url: 'https://www.youtube.com/embed/hhRtSoFHUPM?si=YEjlww2ZNlzgyLhI',
+    title: 'Vocabulario para el día a día',
+    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
     description: 'Palabras clave para comunicarte en situaciones cotidianas.',
   },
 

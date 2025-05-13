@@ -6,20 +6,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const pdfs = [
   {
-    title: 'Food and Meals',
-    file: '/slides/lesson4/Leccion-41',
+    title: 'Introducción al Inglés',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'Shopping and Prices',
-    file: '/slides/lesson4/Leccion-42',
+    title: 'Saludos y Presentaciones',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
   {
-    title: 'Directions and Places in Town',
-    file: '/slides/lesson4/Leccion-43',
-  },
-  {
-    title: 'Review and Real-Life Conversation Practice',
-    file: '/slides/lesson4/Leccion-44',
+    title: 'Vocabulario Diario',
+    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
   },
 ];
 

@@ -1,28 +1,66 @@
 'use client';
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function RegistroPage() {
+  const router = useRouter();
+  const [form, setForm] = useState({
+    nombre: '',
+    apellido: '',
+    email: '',
+    telefono: '',
+    contraseña: '',
+    confirmar: '',
+  });
+  const [acepto, setAcepto] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    if (!acepto) return setError('Debes aceptar los términos.');
+    if (form.contraseña !== form.confirmar)
+      return setError('Las contraseñas no coinciden.');
+
+    const res = await fetch('/api/usuarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form, rol: 'ALUMNO' }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert('Cuenta creada con éxito. Inicia sesión.');
+      router.push('/login');
+    } else {
+      setError(data.error || 'Error al registrar');
+    }
+  };
+
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-[#0F172A]">
-      {/* Video de fondo */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        onLoadedData={() => console.log('Video cargado')}
         className="absolute inset-0 w-full h-full object-cover object-center scale-[1.1] z-0"
       >
         <source src="/bglogin.webm" type="video/webm" />
         Tu navegador no soporta videos en formato WebM.
       </video>
 
-      {/* Capa con más difuminado */}
-      <div className="absolute inset-0 z-0 backdrop-blur-[6px]"></div>
+      <div className="absolute inset-0 z-0 backdrop-blur-[6px]" />
 
-      {/* Card de registro */}
       <div className="w-full max-w-2xl bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl px-6 py-10 md:p-10 mt-[-70px]">
         <div className="flex justify-center mb-6">
           <Image
@@ -41,34 +79,87 @@ export default function RegistroPage() {
           <span className="text-[#38BDF8] font-semibold">NextOnline</span>
         </p>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-5 text-white">
+        {error && (
+          <p className="text-red-500 text-center text-sm mb-4 font-semibold">{error}</p>
+        )}
+
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5 text-white">
+          <input type="hidden" name="rol" value="ALUMNO" />
+
           <div>
             <label className="text-sm block mb-1">Nombre</label>
-            <input type="text" placeholder="Juan" className="input-field" />
+            <input
+              name="nombre"
+              type="text"
+              placeholder="Juan"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label className="text-sm block mb-1">Apellido</label>
-            <input type="text" placeholder="Pérez" className="input-field" />
+            <input
+              name="apellido"
+              type="text"
+              placeholder="Pérez"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label className="text-sm block mb-1">Correo electrónico</label>
-            <input type="email" placeholder="correo@ejemplo.com" className="input-field" />
+            <input
+              name="email"
+              type="email"
+              placeholder="correo@ejemplo.com"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label className="text-sm block mb-1">Teléfono</label>
-            <input type="tel" placeholder="+51 999 888 777" className="input-field" />
+            <input
+              name="telefono"
+              type="tel"
+              placeholder="+51 999 888 777"
+              className="input-field"
+              onChange={handleChange}
+            />
           </div>
           <div>
             <label className="text-sm block mb-1">Contraseña</label>
-            <input type="password" placeholder="********" className="input-field" />
+            <input
+              name="contraseña"
+              type="password"
+              placeholder="********"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label className="text-sm block mb-1">Confirmar contraseña</label>
-            <input type="password" placeholder="********" className="input-field" />
+            <input
+              name="confirmar"
+              type="password"
+              placeholder="********"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="md:col-span-2 flex items-center space-x-2 text-sm mt-1">
-            <input type="checkbox" id="terms" className="accent-[#38BDF8]" />
+            <input
+              type="checkbox"
+              id="terms"
+              className="accent-[#38BDF8]"
+              checked={acepto}
+              onChange={() => setAcepto(!acepto)}
+            />
             <label htmlFor="terms">
               Acepto los{' '}
               <span className="text-[#38BDF8] hover:underline cursor-pointer">

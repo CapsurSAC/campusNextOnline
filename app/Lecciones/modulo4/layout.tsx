@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const subRoutes = [
-  { label: 'Videos de clase', href: '/Lecciones/modulo4/videos' },
-  { label: 'Diapositivas', href: '/Lecciones/modulo4/diapositivas' },
-  { label: 'Recursos', href: '/Lecciones/modulo4/recursos' },
+  { label: 'Videos de clase', href: '/Lecciones/modulo1/videos' },
+  { label: 'Diapositivas', href: '/Lecciones/modulo1/diapositivas' },
+  { label: 'Recursos', href: '/Lecciones/modulo1/recursos' },
   { label: 'Clase en vivo con JUNE', href: '/Lecciones/modulo4/june' },
 ];
 
