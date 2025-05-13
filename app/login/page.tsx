@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-const jwt_decode = require('jwt-decode') as (token: string) => any;
+const jwt_decode = require('jwt-decode') as (token: string) => any
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,25 +14,25 @@ export default function LoginPage() {
 
   useEffect(() => {
     setIsClient(true);
-     const token = localStorage.getItem('token');
-  if (token) {
-    try {
-      const decoded = jwt_decode(token) as any;
-      if (decoded && decoded.exp * 1000 > Date.now()) {
-        router.push('/'); // 👈 redirige si el token es válido
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decoded = jwt_decode(token) as any;
+        if (decoded?.exp * 1000 > Date.now()) {
+          router.push('/');
+        }
+      } catch {
+        localStorage.removeItem('token');
       }
-    } catch (err) {
-      localStorage.removeItem('token');
     }
-  }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
-    const emailInput = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
-    const passwordInput = (e.currentTarget.elements.namedItem('password') as HTMLInputElement).value;
+    const email = (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
+    const contraseña = (e.currentTarget.elements.namedItem('password') as HTMLInputElement).value;
 
     try {
       const res = await fetch('/api/login', {
@@ -40,17 +40,23 @@ export default function LoginPage() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: emailInput, contraseña: passwordInput })
+        body: JSON.stringify({ email, contraseña })
       });
 
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error('Respuesta inválida del servidor');
+      }
 
       if (!res.ok) {
         throw new Error(data.error || 'Error al iniciar sesión');
       }
 
-      localStorage.setItem('token', data.token); // Guardar token
-      router.push('/'); // Redirige después del login
+      localStorage.setItem('token', data.token);
+      router.push('/');
     } catch (err: any) {
       alert(err.message);
     } finally {
