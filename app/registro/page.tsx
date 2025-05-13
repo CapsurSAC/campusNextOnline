@@ -23,28 +23,37 @@ export default function RegistroPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  e.preventDefault();
+  setError('');
 
-    if (!acepto) return setError('Debes aceptar los términos.');
-    if (form.contraseña !== form.confirmar)
-      return setError('Las contraseñas no coinciden.');
+  if (!acepto) return setError('Debes aceptar los términos.');
+  if (form.contraseña !== form.confirmar) return setError('Las contraseñas no coinciden.');
 
+  try {
     const res = await fetch('/api/usuarios', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...form, rol: 'ALUMNO' }),
     });
 
-    const data = await res.json();
-
-    if (res.ok) {
-      alert('Cuenta creada con éxito. Inicia sesión.');
-      router.push('/login');
-    } else {
-      setError(data.error || 'Error al registrar');
+    let data;
+    try {
+      data = await res.json(); // Solo si hay contenido
+    } catch {
+      throw new Error('Respuesta inválida del servidor.');
     }
-  };
+
+    if (!res.ok) {
+      throw new Error(data?.error || 'Error al registrar.');
+    }
+
+    alert('Cuenta creada con éxito. Inicia sesión.');
+    router.push('/login');
+  } catch (err: any) {
+    setError(err.message);
+  }
+};
+
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-[#0F172A]">
