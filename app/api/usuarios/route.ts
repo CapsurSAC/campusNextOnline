@@ -17,33 +17,24 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log("Body recibido:", body);
+
     const { nombre, apellido, email, contraseña, rol } = body;
 
-    // 🛑 Validar si el correo ya existe
-    const existingUser = await prisma.usuario.findUnique({
-      where: { email },
-    });
-
+    const existingUser = await prisma.usuario.findUnique({ where: { email } });
     if (existingUser) {
-      return NextResponse.json({ error: 'Este correo ya está registrado' }, { status: 400 });
+      return NextResponse.json({ error: "Usuario ya existe" }, { status: 400 });
     }
 
-    // 🔐 Encriptar contraseña
     const hashedPassword = await bcrypt.hash(contraseña, 10);
-
-    // ✅ Crear nuevo usuario
     const nuevoUsuario = await prisma.usuario.create({
-      data: {
-        nombre,
-        apellido,
-        email,
-        contraseña: hashedPassword,
-        rol: rol as RolUsuario,
-      },
+      data: { nombre, apellido, email, contraseña: hashedPassword, rol },
     });
 
     return NextResponse.json(nuevoUsuario);
-  } catch (error) {
-    return NextResponse.json({ error: 'Error al crear usuario' }, { status: 500 });
+  } catch (error: any) {
+    console.error("Error en POST /api/usuarios:", error);
+    return NextResponse.json({ error: error.message || 'Error inesperado' }, { status: 500 });
   }
 }
+
