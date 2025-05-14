@@ -4,10 +4,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      =  env("DATABASE_URL")
 }
-
-
 model Usuario {
   id                 Int               @id @default(autoincrement())
   nombre             String
@@ -123,6 +121,9 @@ model RespuestaUsuario {
   respuesta      String
   fechaRespuesta DateTime      @default(now())
 }
+
+
+
 
 model Mensaje {
   id           Int           @id @default(autoincrement())

@@ -10,6 +10,7 @@ export async function GET() {
     const usuarios = await prisma.usuario.findMany();
     return NextResponse.json(usuarios);
   } catch (error) {
+     console.error('Error en GET /api/usuarios:', error);
     return NextResponse.json({ error: 'Error al obtener usuarios' }, { status: 500 });
   }
 }
