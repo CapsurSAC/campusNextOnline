@@ -1,33 +1,29 @@
-// middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import jwt from 'jsonwebtoken';
-
-const SECRET = process.env.JWT_SECRET || 'clave_super_secreta'; // Asegúrate de definirla bien en producción
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const token = request.cookies.get('token')?.value || request.headers.get('authorization')?.split(' ')[1];
 
-  // Rutas públicas
-  const isPublic = pathname === '/login' || pathname === '/registro' || pathname.startsWith('/api');
-  if (isPublic) return NextResponse.next();
+  // Rutas que requieren login
+  const isProtected = request.nextUrl.pathname.startsWith('/') ||
+                      request.nextUrl.pathname.startsWith('/perfil') ||
+                      request.nextUrl.pathname.startsWith('/lecciones') ||
+                         request.nextUrl.pathname.startsWith('/musica') ||
+                            request.nextUrl.pathname.startsWith('/sonidos') ||
+                      request.nextUrl.pathname.startsWith('/evaluaciones');
 
-  // Obtener token de cookie
-  const token = request.cookies.get('token')?.value;
-  if (!token) {
+  if (isProtected && !token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  try {
-    const decoded = jwt.verify(token, SECRET); // 👈 Verifica firma y expiración
-    // Puedes usar `decoded` si quieres pasar info a headers, etc.
-    return NextResponse.next();
-  } catch (err) {
-    console.warn('Token inválido:', err);
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon.ico|images|fonts|api).*)'],
+  matcher: [
+    '/dashboard/:path*',
+    '/perfil/:path*',
+    '/lecciones/:path*',
+    '/evaluaciones/:path*',
+  ],
 };
