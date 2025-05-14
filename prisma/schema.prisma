@@ -13,6 +13,7 @@ model Usuario {
   email              String           @unique
   contraseña         String
   rol                RolUsuario
+  telefono           String?
   fechaRegistro      DateTime         @default(now())
   inscripciones      Inscripcion[]
   mensajesEnviados   Mensaje[]        @relation("MensajesEnviados")

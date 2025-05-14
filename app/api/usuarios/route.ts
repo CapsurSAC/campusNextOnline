@@ -1,7 +1,7 @@
 // app/api/usuarios/route.ts
 import { PrismaClient, RolUsuario } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
-import bcrypt from 'bcrypt'; // 👈 importa bcrypt
+import bcrypt from 'bcryptjs'; // 👈 importa bcrypt
 
 const prisma = new PrismaClient();
 
