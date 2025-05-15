@@ -1,18 +1,24 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const PUBLIC_ROUTES = ['/login', '/registro'];
+const STATIC_EXTENSIONS = ['.webm', '.webp', '.jpg', '.png', '.css', '.js', '.ico', '.svg'];
+
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get('token')?.value || request.headers.get('authorization')?.split(' ')[1];
+  const pathname = request.nextUrl.pathname;
 
-  // Rutas que requieren login
-  const isProtected = request.nextUrl.pathname.startsWith('/') ||
-                      request.nextUrl.pathname.startsWith('/perfil') ||
-                      request.nextUrl.pathname.startsWith('/lecciones') ||
-                         request.nextUrl.pathname.startsWith('/musica') ||
-                            request.nextUrl.pathname.startsWith('/sonidos') ||
-                      request.nextUrl.pathname.startsWith('/evaluaciones');
+  const isPublic = PUBLIC_ROUTES.some(route => pathname.startsWith(route));
+  const isStatic = STATIC_EXTENSIONS.some(ext => pathname.endsWith(ext));
 
-  if (isProtected && !token) {
+  if (isPublic || pathname.startsWith('/api') || pathname.startsWith('/_next') || isStatic) {
+    return NextResponse.next();
+  }
+
+  const token = request.cookies.get('token')?.value;
+
+  // ⚠️ En vez de verificar el token aquí...
+  // Solo verifica su existencia para no romper render
+  if (!token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
@@ -20,10 +26,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/dashboard/:path*',
-    '/perfil/:path*',
-    '/lecciones/:path*',
-    '/evaluaciones/:path*',
-  ],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };

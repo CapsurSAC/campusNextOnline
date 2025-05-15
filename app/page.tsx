@@ -1,6 +1,6 @@
 'use client';
 
-import { useUsuario } from '@/lib/hooks/useUsuario';
+import { useUser } from '@/hooks/useUser';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { modules } from '@/app/data/modules';
@@ -9,37 +9,48 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
-  const usuario = useUsuario();
-const router = useRouter();
-useEffect(() => {
-  if (!usuario) {
-    const timer = setTimeout(() => {
+  const { user, loading } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
       router.push('/login');
-    }, 800);
-    return () => clearTimeout(timer);
-  }
-}, [usuario]);
-if (!usuario) return null;
+    }
+  }, [user, loading]);
+
+    if (loading) {
+      return (
+        <div className="min-h-screen flex items-center justify-center text-white">
+          <p className="text-lg font-semibold animate-pulse">Cargando tu información...</p>
+        </div>
+      );
+    }
+
+    if (!user) return null; // opcional si ya redirigiste en useEffect
 
   return (
-    
     <main className="px-6 pt-4 pb-10 min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
       {/* Encabezado */}
-
-      
       <motion.section
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-10"
-      >
-        <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
-          ¡Bienvenido a <span className="text-white">NextOnline!</span>
-        </h1>
-        <p className="text-white/70 text-lg mt-3 max-w-2xl mx-auto">
-          Aprende inglés con IA, música, módulos interactivos y clases recomendadas por JUNE.
-        </p>
-      </motion.section>
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-10"
+    >
+      <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
+        ¡Bienvenido a <span className="text-white">NextOnline!</span>
+      </h1>
+
+      {/* 👇 Saludo personalizado */}
+      <p className="text-white text-md font-semibold mt-2">
+        Hola, <span className="text-sky-300">{user.email}</span> 👋
+      </p>
+
+      <p className="text-white/70 text-lg mt-3 max-w-2xl mx-auto">
+        Aprende inglés con IA, música, módulos interactivos y clases recomendadas por JUNE.
+      </p>
+    </motion.section>
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* JUNE te recomienda */}
@@ -70,7 +81,7 @@ if (!usuario) return null;
           </div>
         </motion.div>
 
-        {/* Tu progreso con doble gráfico animado */}
+        {/* Tu progreso */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,8 +115,6 @@ if (!usuario) return null;
             </span>
           </div>
           <p className="text-white/70 text-sm text-center mb-2">Has completado 13 de 20 módulos.</p>
-
-          {/* Barra horizontal animada */}
           <div className="w-full">
             <p className="text-white/70 text-sm mb-1">Vocabulario aprendido</p>
             <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden">
@@ -129,20 +138,18 @@ if (!usuario) return null;
         >
           <h2 className="text-xl font-semibold mb-4">🎵 Playlist diaria</h2>
           <div className="space-y-4">
-            {[
-              '3U4isOIWM3VvDubwSI3y7a',
-              '1R0a2iXumgCiVEnA2U5K1Z',
-              '6habFhsOp2NvshLv26DqMb',
-            ].map((trackId) => (
-              <iframe
-                key={trackId}
-                className="rounded w-full"
-                src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator`}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                height="80"
-              />
-            ))}
+            {['3U4isOIWM3VvDubwSI3y7a', '1R0a2iXumgCiVEnA2U5K1Z', '6habFhsOp2NvshLv26DqMb'].map(
+              (trackId) => (
+                <iframe
+                  key={trackId}
+                  className="rounded w-full"
+                  src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator`}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  height="80"
+                />
+              )
+            )}
           </div>
         </motion.div>
       </div>

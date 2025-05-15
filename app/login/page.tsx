@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-const jwt_decode = require('jwt-decode') as (token: string) => any
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,17 +13,6 @@ export default function LoginPage() {
 
   useEffect(() => {
     setIsClient(true);
-    const token = localStorage.getItem('token');
-    if (token) {
-      try {
-        const decoded = jwt_decode(token) as any;
-        if (decoded?.exp * 1000 > Date.now()) {
-          router.push('/');
-        }
-      } catch {
-        localStorage.removeItem('token');
-      }
-    }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,25 +25,19 @@ export default function LoginPage() {
     try {
       const res = await fetch('/api/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, contraseña })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, contraseña }),
+        credentials: 'include', // 👈 incluye la cookie del token
       });
 
-      const text = await res.text();
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        throw new Error('Respuesta inválida del servidor');
-      }
-
       if (!res.ok) {
+        const data = await res.json();
         throw new Error(data.error || 'Error al iniciar sesión');
       }
 
-      localStorage.setItem('token', data.token);
+      console.log('✅ Login exitoso');
+      console.log('🔁 Redirigiendo a /');
+
       router.push('/');
     } catch (err: any) {
       alert(err.message);
@@ -149,7 +131,7 @@ export default function LoginPage() {
         <p className="text-[#172E4D] text-sm font-bold text-center mt-6">
           ¿No tienes cuenta?{' '}
           <Link href="/registro" className="text-[#38BDF8] hover:underline font-medium">
-            Regístrate aquí
+            Regístrate aquí 
           </Link>
         </p>
       </motion.div>

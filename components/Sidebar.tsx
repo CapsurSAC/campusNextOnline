@@ -1,8 +1,8 @@
 'use client';
-import { useUsuario } from '@/lib/hooks/useUsuario';
-
+import { useUser } from '@/hooks/useUser'; // usa el hook nuevo, no localStorage
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   BookOpen,
@@ -14,7 +14,13 @@ import {
 } from 'lucide-react';
 
 export default function SidebarContent() {
-  const usuario = useUsuario();
+  const { user } = useUser();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await fetch('/api/logout', { method: 'POST' });
+    router.push('/login');
+  };
 
   return (
     <div className="flex flex-col h-full justify-between">
@@ -30,16 +36,14 @@ export default function SidebarContent() {
                 height={80}
                 className="object-cover"
               />
-              {usuario && (
-                <p className="text-white text-sm text-center mt-1">
-                  {usuario.email} ({usuario.rol})
-                </p>
-              )}
-
             </div>
           </Link>
-          
-        <SidebarLink href="/perfil" icon={<UserCircle size={20} />} label="Mi perfil" />
+          {user && (
+            <p className="text-white text-sm text-center mt-1">
+              {user.email} ({user.rol})
+            </p>
+          )}
+          <SidebarLink href="/perfil" icon={<UserCircle size={20} />} label="Mi perfil" />
         </div>
 
         {/* Navegación */}
@@ -54,12 +58,8 @@ export default function SidebarContent() {
 
       {/* Acciones abajo */}
       <div className="flex flex-col px-4 pb-4 gap-2 mt-6 border-t border-white/10 pt-4">
-
         <button
-          onClick={() => {
-            localStorage.removeItem('token');
-            window.location.href = '/login';
-          }}
+          onClick={handleLogout}
           className="flex items-center gap-3 text-red-500 hover:text-white hover:bg-red-600 px-3 py-2 rounded transition"
         >
           <LogOut size={20} />
