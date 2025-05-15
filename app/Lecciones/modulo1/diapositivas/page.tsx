@@ -6,16 +6,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const pdfs = [
   {
-    title: 'Introducción al Inglés',
-    file: '/slides/lesson1/UNIT-1-LESSON-1-GRAMMAR.pdf',
+    title: 'Greetings and Introductions',
+    file: '/slides/lesson1/Leccion-11.pdf',
   },
   {
-    title: 'Vocabulario Diario',
-    file: '/slides/lesson1/UNIT-1-LESSON-1-VOCABULARY.pdf',
+    title: 'Daily Expressions and Farewells',
+    file: '/slides/lesson1/Leccion-12.pdf',
   },
   {
-    title: 'Presentaciones',
-    file: '/slides/lesson1/UNIT-1-LESSON-1-VOCABULARY.pdf',
+    title: 'Numbers and Dates',
+    file: '/slides/lesson1/Leccion-13.pdf',
+  },
+  {
+    title: 'Classroom Language and Commands',
+    file: '/slides/lesson1/Leccion-14.pdf',
   },
 ];
 
