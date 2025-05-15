@@ -14,11 +14,19 @@ model Usuario {
   contraseña         String
   rol                RolUsuario
   telefono           String?
+  dni                String           @unique             // ✅ NUEVO CAMPO
+  idioma             String?          @default("Español")
+  nivel              String?          @default("Básico")
+  metaSemanal        String?          @default("3 lecciones")
+  progreso           Int              @default(0)
+  ultimoAcceso       DateTime?
   fechaRegistro      DateTime         @default(now())
+
   inscripciones      Inscripcion[]
   mensajesEnviados   Mensaje[]        @relation("MensajesEnviados")
   mensajesRecibidos  Mensaje[]        @relation("MensajesRecibidos")
 }
+
 
 enum RolUsuario {
   ADMIN

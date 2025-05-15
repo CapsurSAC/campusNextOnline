@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     console.log("Body recibido:", body);
 
-    const { nombre, apellido, email, contraseña, rol } = body;
+    const { nombre, apellido, email, telefono, dni, contraseña, rol } = body;
 
     const existingUser = await prisma.usuario.findUnique({ where: { email } });
     if (existingUser) {
@@ -28,8 +28,9 @@ export async function POST(req: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(contraseña, 10);
     const nuevoUsuario = await prisma.usuario.create({
-      data: { nombre, apellido, email, contraseña: hashedPassword, rol },
+      data: { nombre, apellido, email, telefono, dni, contraseña: hashedPassword, rol },
     });
+
 
     return NextResponse.json(nuevoUsuario);
   } catch (error: any) {

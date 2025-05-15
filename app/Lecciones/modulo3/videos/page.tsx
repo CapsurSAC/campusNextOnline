@@ -5,23 +5,23 @@ import { FiPlayCircle } from 'react-icons/fi';
 
 const videos = [
   {
-    title: 'Presentaciones en inglés',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'Describing People (Appearance and Personality)',
+    url: 'https://www.youtube.com/embed/amuG79ifw8I?si=YeMU4Qs8IqKlyqGL',
     description: 'Aprende a presentarte correctamente en distintos contextos.',
   },
   {
-    title: 'Saludos y despedidas',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'Family Members and Possessives',
+    url: 'https://www.youtube.com/embed/eyUEksNs_J8?si=KSL35RVWpx1nR_QO',
     description: 'Frases básicas para empezar y cerrar una conversación.',
   },
   {
-    title: 'Preguntas comunes',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'My House and Furniture',
+    url: 'https://www.youtube.com/embed/o1QBm_R9VAE?si=NT1lNY4Y4Mt0nHV9',
     description: 'Expresiones para preguntar en inglés de forma simple.',
   },
   {
-    title: 'Vocabulario para el día a día',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'There is / There are + Places',
+    url: 'https://www.youtube.com/embed/tE9iv0DksXA?si=4OX5gDq9AoQ4ZY0L',
     description: 'Palabras clave para comunicarte en situaciones cotidianas.',
   },
 ];

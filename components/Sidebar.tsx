@@ -1,5 +1,5 @@
 'use client';
-import { useUser } from '@/hooks/useUser'; // usa el hook nuevo, no localStorage
+import { useUser } from '@/hooks/useUser';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -23,31 +23,39 @@ export default function SidebarContent() {
   };
 
   return (
-    <div className="flex flex-col h-full justify-between">
-      <div>
-        {/* Perfil */}
-        <div className="flex flex-col items-center mt-6">
-          <Link href="/perfil">
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white mb-2 cursor-pointer hover:brightness-110 transition">
-              <Image
-                src="/images/perfil.jpg"
-                alt="Perfil"
-                width={80}
-                height={80}
-                className="object-cover"
-              />
-            </div>
-          </Link>
-          {user && (
-            <p className="text-white text-sm text-center mt-1">
-              {user.email} ({user.rol})
-            </p>
-          )}
-          <SidebarLink href="/perfil" icon={<UserCircle size={20} />} label="Mi perfil" />
+    <div className="flex flex-col h-full justify-between bg-slate-900 text-white">
+      {/* Superior: perfil + menú */}
+      <div className="flex flex-col items-center pt-6">
+        {/* Foto */}
+        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white mb-2">
+          <Image
+            src="/images/perfil.jpg"
+            alt="Foto de perfil"
+            width={80}
+            height={80}
+            className="object-cover"
+          />
         </div>
 
-        {/* Navegación */}
-        <nav className="flex flex-col mt-10 px-4 space-y-3">
+        {/* Nombre y rol */}
+        {user && (
+          <div className="text-center mb-2">
+            <p className="text-sm font-semibold">{user.nombre || user.email}</p>
+            <p className="text-xs text-white/60 uppercase">{user.rol}</p>
+          </div>
+        )}
+
+        {/* Ver perfil */}
+        <Link
+          href="/perfil"
+          className="text-xs text-blue-400 hover:underline mb-4 flex items-center gap-1"
+        >
+          <UserCircle size={16} />
+          Ver perfil
+        </Link>
+
+        {/* Menú de navegación */}
+        <nav className="flex flex-col mt-6 w-full px-4 space-y-3">
           <SidebarLink href="/" icon={<LayoutDashboard size={20} />} label="Inicio" />
           <SidebarLink href="/Lecciones" icon={<BookOpen size={20} />} label="Lecciones" />
           <SidebarLink href="/sonidos" icon={<Volume2 size={20} />} label="Sonidos" />
@@ -56,11 +64,11 @@ export default function SidebarContent() {
         </nav>
       </div>
 
-      {/* Acciones abajo */}
-      <div className="flex flex-col px-4 pb-4 gap-2 mt-6 border-t border-white/10 pt-4">
+      {/* Inferior: logout */}
+      <div className="px-4 pb-6">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 text-red-500 hover:text-white hover:bg-red-600 px-3 py-2 rounded transition"
+          className="flex items-center gap-3 text-red-500 hover:text-white hover:bg-red-600 px-3 py-2 rounded transition w-full justify-start"
         >
           <LogOut size={20} />
           <span>Cerrar sesión</span>
@@ -70,7 +78,15 @@ export default function SidebarContent() {
   );
 }
 
-function SidebarLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function SidebarLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <Link
       href={href}

@@ -5,23 +5,23 @@ import { FiPlayCircle } from 'react-icons/fi';
 
 const videos = [
   {
-    title: 'Presentaciones en inglés',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'Daily Routines and the Present Simple',
+    url: 'https://www.youtube.com/embed/mptgZS7j8YQ?si=i37PsccGUC-M_miy',
     description: 'Aprende a presentarte correctamente en distintos contextos.',
   },
   {
-    title: 'Saludos y despedidas',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'Telling the Time',
+    url: 'https://www.youtube.com/embed/2I9XfyM0jR8?si=5Dz9Kur2Qv-mqGjg',
     description: 'Frases básicas para empezar y cerrar una conversación.',
   },
   {
-    title: 'Preguntas comunes',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'The Days of the Week and Schedule',
+    url: 'https://www.youtube.com/embed/V9pj3NGB4go?si=_c9h55zFx2dFX17H',
     description: 'Expresiones para preguntar en inglés de forma simple.',
   },
   {
-    title: 'Vocabulario para el día a día',
-    url: 'https://www.youtube.com/embed/H5FE-TxXUkM?si=jizInMqeO91VV__A',
+    title: 'Talking About Frequency',
+    url: 'https://www.youtube.com/embed/mEKf94TI7I8?si=Z0HY1HgfSBq8Le30',
     description: 'Palabras clave para comunicarte en situaciones cotidianas.',
   },
 ];

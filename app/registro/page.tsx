@@ -12,6 +12,7 @@ export default function RegistroPage() {
     apellido: '',
     email: '',
     telefono: '',
+     dni: '', // 👈 nuevo campo
     contraseña: '',
     confirmar: '',
   });
@@ -138,6 +139,18 @@ export default function RegistroPage() {
               onChange={handleChange}
             />
           </div>
+          <div>
+            <label className="text-sm block mb-1">DNI</label>
+            <input
+              name="dni"
+              type="text"
+              placeholder="12345678"
+              className="input-field"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <div>
             <label className="text-sm block mb-1">Contraseña</label>
             <input

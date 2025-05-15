@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { useUser } from '@/hooks/useUser';
 import {
   Button,
   Input,
@@ -21,11 +22,15 @@ import { User, TrendingUp, Medal, Clock } from 'lucide-react';
 
 export default function ProfilePage() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [name, setName] = useState('Juan Pérez');
-  const [email, setEmail] = useState('juanperez@example.com');
+  const { user } = useUser();
+
+  const [name, setName] = useState(user?.nombre || '');
+  const [email, setEmail] = useState(user?.email || '');
   const [language, setLanguage] = useState('Español');
   const [level, setLevel] = useState('Básico');
   const [goal, setGoal] = useState('3 lecciones');
+
+  if (!user) return null;
 
   return (
     <main className="min-h-screen px-4 py-10 md:px-20 bg-gradient-to-b from-slate-900 to-slate-950 text-white">
@@ -76,13 +81,13 @@ export default function ProfilePage() {
         </Card>
       </section>
 
-      {/* Paneles principales */}
+      {/* Perfil y progreso */}
       <div className="grid gap-8 lg:grid-cols-2 max-w-7xl mx-auto">
         {/* Perfil */}
         <div className="bg-slate-800 p-6 rounded-xl shadow-xl flex flex-col items-center text-center">
           <Image src="/images/perfil.jpg" alt="Avatar" width={110} height={110} className="rounded-full mb-4" />
-          <h2 className="text-2xl font-semibold">{name}</h2>
-          <p className="text-white/70 text-sm">{email}</p>
+          <h2 className="text-2xl font-semibold">{user.nombre}</h2>
+          <p className="text-white/70 text-sm">{user.email}</p>
           <div className="mt-4 text-left w-full max-w-xs mx-auto space-y-1 text-sm">
             <p><strong>Idioma:</strong> {language}</p>
             <p><strong>Nivel actual:</strong> {level}</p>
@@ -124,7 +129,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Modal de edición */}
+      {/* Modal editar perfil */}
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="md">
         <ModalContent>
           {(onClose) => (
@@ -132,7 +137,7 @@ export default function ProfilePage() {
               <ModalHeader className="text-xl font-bold">Editar perfil</ModalHeader>
               <ModalBody>
                 <Input label="Nombre" value={name} onValueChange={setName} />
-                <Input label="Correo electrónico" value={email} onValueChange={setEmail} />
+                <Input label="Correo electrónico" value={email} isDisabled />
                 <Input label="Idioma" value={language} onValueChange={setLanguage} />
                 <Input label="Nivel" value={level} onValueChange={setLevel} />
                 <Input label="Meta semanal" value={goal} onValueChange={setGoal} />
