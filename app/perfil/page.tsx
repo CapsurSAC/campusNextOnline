@@ -144,7 +144,33 @@ export default function ProfilePage() {
               </ModalBody>
               <ModalFooter>
                 <Button variant="light" onPress={onClose}>Cancelar</Button>
-                <Button color="primary" onPress={onClose}>Guardar</Button>
+                <Button
+                  color="primary"
+                  onPress={async () => {
+                    try {
+                      const res = await fetch('/api/perfil', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          nombre: name,
+                          idioma: language,
+                          nivel: level,
+                          metaSemanal: goal,
+                        }),
+                      });
+
+                      if (!res.ok) throw new Error('No se pudo guardar los cambios');
+
+                      alert('✅ Perfil actualizado');
+                      onClose();
+                    } catch (err) {
+                      alert('❌ Hubo un error al actualizar el perfil');
+                    }
+                  }}
+                >
+                  Guardar
+                </Button>
+
               </ModalFooter>
             </>
           )}
