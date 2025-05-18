@@ -11,6 +11,7 @@ import {
   UserCircle,
   LogOut,
   Volume2,
+  Award,
 } from 'lucide-react';
 
 export default function SidebarContent() {
@@ -61,6 +62,7 @@ export default function SidebarContent() {
           <SidebarLink href="/sonidos" icon={<Volume2 size={20} />} label="Sonidos" />
           <SidebarLink href="/musica" icon={<Music size={20} />} label="Aprende con Música" />
           <SidebarLink href="/evaluaciones" icon={<FileText size={20} />} label="Evaluaciones" />
+          <SidebarLink href="/certificado" icon={<Award size={20} />} label="Certificado" />
         </nav>
       </div>
 
