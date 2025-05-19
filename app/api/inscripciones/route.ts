@@ -1,4 +1,3 @@
-// app/api/inscripciones/route.ts
 import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -8,13 +7,22 @@ export async function GET(req: NextRequest) {
   try {
     const inscripciones = await prisma.inscripcion.findMany({
       include: {
-        usuario: true,
-        curso: true,
-      },
+        curso: {
+          select: {
+            id: true,
+            titulo: true, // ✅ correcto según tu modelo
+            imagenPortada: true,
+            duracionHoras: true,
+            categoria: true
+          }
+        }
+      }
     });
 
-    return NextResponse.json(inscripciones);
+    const cursos = inscripciones.map((i) => i.curso); // ahora ya incluye curso correctamente
+    return NextResponse.json({ cursos });
   } catch (error) {
+    console.error("Error al obtener inscripciones:", error);
     return NextResponse.json({ error: 'Error al obtener inscripciones' }, { status: 500 });
   }
 }
@@ -33,6 +41,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(inscripcion);
   } catch (error) {
+    console.error("Error al inscribir al usuario:", error);
     return NextResponse.json({ error: 'Error al inscribir al usuario' }, { status: 500 });
   }
 }

@@ -2,12 +2,46 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Lock, CheckCircle, BarChart3 } from 'lucide-react';
+import { Lock, CheckCircle } from 'lucide-react';
+import { useUser } from '@/hooks/useUser';
+import { useMisCursos } from '@/hooks/useMisCursos';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function EvaluacionesPage() {
+  const { user, loading: userLoading } = useUser();
+  const { cursos, loading: cursosLoading } = useMisCursos();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!userLoading && !user) {
+      router.push('/login');
+    }
+  }, [user, userLoading]);
+
+  if (userLoading || cursosLoading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900">
+        <p className="text-lg font-semibold animate-pulse">Cargando evaluaciones...</p>
+      </main>
+    );
+  }
+
+  if (!user || cursos.length === 0) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
+        <div className="text-center max-w-md space-y-4">
+          <h2 className="text-2xl font-bold">Acceso denegado</h2>
+          <p className="text-white/70">
+            Necesitas estar inscrito en al menos un curso para ver las evaluaciones. Contacta al administrador.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="px-6 pt-6 pb-12 min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      {/* Encabezado */}
       <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -22,7 +56,6 @@ export default function EvaluacionesPage() {
         </p>
       </motion.section>
 
-      {/* Niveles */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <LevelCard
           title="Nivel Básico"
@@ -77,9 +110,5 @@ function LevelCard({
     </motion.div>
   );
 
-  return locked ? (
-    <div>{card}</div>
-  ) : (
-    <Link href={href ?? '#'}>{card}</Link>
-  );
+  return locked ? <div>{card}</div> : <Link href={href ?? '#'}>{card}</Link>;
 }

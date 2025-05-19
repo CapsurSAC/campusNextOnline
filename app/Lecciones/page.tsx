@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FaBookOpen, FaLock } from 'react-icons/fa';
+import { useUser } from '@/hooks/useUser';
+import { useMisCursos } from '@/hooks/useMisCursos';
 
 const modules = [
   {
@@ -32,6 +36,39 @@ const modules = [
 ];
 
 export default function LeccionesPage() {
+  const { user, loading: userLoading } = useUser();
+  const { cursos, loading: cursosLoading } = useMisCursos();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!userLoading && !user) {
+      router.push('/login');
+    }
+  }, [user, userLoading]);
+
+  if (userLoading || cursosLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-white">
+        <p className="text-lg font-semibold animate-pulse">Verificando acceso a tus cursos...</p>
+      </div>
+    );
+  }
+
+  // Bloquear acceso si no está inscrito en ningún curso
+  if (!user || cursos.length === 0) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
+        <div className="text-center max-w-md space-y-4">
+          <h2 className="text-2xl font-bold">Acceso restringido</h2>
+          <p className="text-white/70">
+            No puedes ver las lecciones porque aún no estás inscrito en un curso. Contacta al administrador para obtener acceso.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
+  // Render normal
   return (
     <div className="ml-1 p-6 min-h-screen bg-slate-800 text-white">
       <h1 className="text-4xl font-extrabold mb-8 flex items-center gap-4">
@@ -64,9 +101,7 @@ export default function LeccionesPage() {
                 </div>
                 <div className="flex items-center gap-2 text-yellow-300 mt-4">
                   <FaLock />
-                  <span className="text-sm group-hover:underline">
-                    Módulo no disponible aún
-                  </span>
+                  <span className="text-sm group-hover:underline">Módulo no disponible aún</span>
                 </div>
               </div>
             )}

@@ -1,24 +1,28 @@
 'use client';
 
-import { useUser } from '@/hooks/useUser';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import { modules } from '@/app/data/modules';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useUser } from '@/hooks/useUser';
+import { useMisCursos } from '@/hooks/useMisCursos';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
 
 export default function HomePage() {
-  const { user, loading } = useUser();
+
+  const { user, loading: userLoading } = useUser();
+  const { cursos, loading: cursosLoading } = useMisCursos();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!loading && !user) {
+    useEffect(() => {
+    if (!userLoading && !user) {
       router.push('/login');
     }
-  }, [user, loading]);
+    }, [user, userLoading]);
 
-    if (loading) {
+    if (userLoading || cursosLoading) {
       return (
         <div className="min-h-screen flex items-center justify-center text-white">
           <p className="text-lg font-semibold animate-pulse">Cargando tu información...</p>
@@ -26,8 +30,21 @@ export default function HomePage() {
       );
     }
 
-    if (!user) return null; // opcional si ya redirigiste en useEffect
+  if (!user) return null;
 
+  // Si el usuario no está inscrito en ningún curso
+  if (cursos.length === 0) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
+        <div className="text-center max-w-md space-y-4">
+          <h2 className="text-2xl font-bold">¡Hola {user.nombre || user.email}!</h2>
+          <p className="text-white/70">
+            Actualmente no estás inscrito en ningún curso. Contacta al administrador para poder acceder a las lecciones, evaluaciones y certificado.
+          </p>
+        </div>
+      </main>
+    );
+  }
   return (
     <main className="px-6 pt-4 pb-10 min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
       {/* Encabezado */}
