@@ -1,25 +1,45 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generarCertificado } from '../../utils/generarCertificado';
+import { cookies } from 'next/headers';
+import jwt from 'jsonwebtoken';
+import { prisma } from '@/lib/prisma';
+import { generarCertificado } from '@/app/utils/generarCertificado';
+
+const SECRET = process.env.JWT_SECRET!;
 
 export async function GET(req: NextRequest) {
-  const url = new URL(req.url);
-  const id = url.searchParams.get('id');
-
-  if (!id) {
-    return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
-  }
-
   try {
-    const pdf = await generarCertificado(parseInt(id));
+    // 🧠 Obtener el token desde las cookies
+    const token = cookies().get('token')?.value;
+
+    if (!token) {
+      return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    }
+
+    // 🔐 Decodificar el token para obtener el ID del usuario
+    const payload = jwt.verify(token, SECRET) as { userId: number };
+
+    // 🧩 Buscar la inscripción más reciente de ese usuario
+    const inscripcion = await prisma.inscripcion.findFirst({
+      where: { usuarioId: payload.userId },
+      orderBy: { fechaInscripcion: 'desc' },
+    });
+
+    if (!inscripcion) {
+      return NextResponse.json({ error: 'No se encontró inscripción para este usuario' }, { status: 404 });
+    }
+
+    // 📄 Generar el certificado con esa inscripción
+    const pdf = await generarCertificado(inscripcion.id);
+
     return new NextResponse(Buffer.from(pdf), {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename=certificado.pdf',
+        'Content-Disposition': 'inline; filename=certificado.pdf',
       },
     });
-  } catch (error: unknown) {
-    const err = error as Error;
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (error: any) {
+    console.error('❌ Error al generar certificado:', error);
+    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

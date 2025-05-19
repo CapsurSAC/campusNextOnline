@@ -4,63 +4,122 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      =  env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
+
 model Usuario {
-  id                 Int               @id @default(autoincrement())
-  nombre             String
-  apellido           String
-  email              String           @unique
-  contraseña         String
-  rol                RolUsuario
-  telefono           String?
-  dni                String           @unique             // ✅ NUEVO CAMPO
-  idioma             String?          @default("Español")
-  nivel              String?          @default("Básico")
-  metaSemanal        String?          @default("3 lecciones")
-  progreso           Int              @default(0)
-  ultimoAcceso       DateTime?
-  fechaRegistro      DateTime         @default(now())
-
-  inscripciones      Inscripcion[]
-  mensajesEnviados   Mensaje[]        @relation("MensajesEnviados")
-  mensajesRecibidos  Mensaje[]        @relation("MensajesRecibidos")
+  id                Int           @id @default(autoincrement())
+  nombre            String
+  apellido          String
+  email             String        @unique
+  contraseña       String
+  rol               RolUsuario
+  fechaRegistro     DateTime      @default(now())
+  telefono          String?
+  dni               String        @unique
+  idioma            String?       @default("Español")
+  metaSemanal       String?       @default("3 lecciones")
+  nivel             String?       @default("Básico")
+  progreso          Int           @default(0)
+  ultimoAcceso      DateTime?
+  inscripciones     Inscripcion[]
+  mensajesEnviados  Mensaje[]     @relation("MensajesEnviados")
+  mensajesRecibidos Mensaje[]     @relation("MensajesRecibidos")
 }
 
+model Curso {
+  id            Int           @id @default(autoincrement())
+  titulo        String
+  descripcion   String
+  categoria     String
+  imagenPortada String
+  duracionHoras Int
+  estado        EstadoCurso
+  evaluaciones  Evaluacion[]
+  inscripciones Inscripcion[]
+  lecciones     Leccion[]
+}
+
+model Leccion {
+  id         Int               @id @default(autoincrement())
+  cursoId    Int
+  titulo     String
+  contenido  String
+  orden      Int
+  tipo       TipoLeccion
+  curso      Curso             @relation(fields: [cursoId], references: [id])
+  materiales Material[]
+  progresos  ProgresoLeccion[]
+}
+
+model Material {
+  id          Int          @id @default(autoincrement())
+  leccionId   Int
+  tipo        TipoMaterial
+  descripcion String
+  urlArchivo  String
+  leccion     Leccion      @relation(fields: [leccionId], references: [id])
+}
+
+model Inscripcion {
+  id               Int                @id @default(autoincrement())
+  usuarioId        Int
+  cursoId          Int
+  fechaInscripcion DateTime           @default(now())
+  curso            Curso              @relation(fields: [cursoId], references: [id])
+  usuario          Usuario            @relation(fields: [usuarioId], references: [id])
+  progresos        ProgresoLeccion[]
+  respuestas       RespuestaUsuario[]
+}
+
+model ProgresoLeccion {
+  id              Int         @id @default(autoincrement())
+  inscripcionId   Int
+  leccionId       Int
+  completado      Boolean
+  fechaCompletado DateTime?
+  inscripcion     Inscripcion @relation(fields: [inscripcionId], references: [id])
+  leccion         Leccion     @relation(fields: [leccionId], references: [id])
+}
+
+model Evaluacion {
+  id          Int                @id @default(autoincrement())
+  cursoId     Int
+  titulo      String
+  descripcion String
+  tipo        TipoEvaluacion
+  curso       Curso              @relation(fields: [cursoId], references: [id])
+  respuestas  RespuestaUsuario[]
+}
+
+model RespuestaUsuario {
+  id             Int         @id @default(autoincrement())
+  inscripcionId  Int
+  evaluacionId   Int
+  respuesta      String
+  fechaRespuesta DateTime    @default(now())
+  evaluacion     Evaluacion  @relation(fields: [evaluacionId], references: [id])
+  inscripcion    Inscripcion @relation(fields: [inscripcionId], references: [id])
+}
+
+model Mensaje {
+  id         Int      @id @default(autoincrement())
+  emisorId   Int
+  receptorId Int
+  contenido  String
+  fechaEnvio DateTime @default(now())
+  emisor     Usuario  @relation("MensajesEnviados", fields: [emisorId], references: [id])
+  receptor   Usuario  @relation("MensajesRecibidos", fields: [receptorId], references: [id])
+}
 
 enum RolUsuario {
   ADMIN
   ALUMNO
 }
 
-model Curso {
-  id             Int           @id @default(autoincrement())
-  titulo         String
-  descripcion    String
-  categoria      String
-  imagenPortada  String
-  duracionHoras  Int
-  estado         EstadoCurso
-  lecciones      Leccion[]
-  evaluaciones   Evaluacion[]
-  inscripciones  Inscripcion[]
-}
-
 enum EstadoCurso {
   ACTIVO
   INACTIVO
-}
-
-model Leccion {
-  id            Int               @id @default(autoincrement())
-  curso         Curso             @relation(fields: [cursoId], references: [id])
-  cursoId       Int
-  titulo        String
-  contenido     String
-  orden         Int
-  tipo          TipoLeccion
-  materiales    Material[]
-  progresos     ProgresoLeccion[]
 }
 
 enum TipoLeccion {
@@ -69,77 +128,13 @@ enum TipoLeccion {
   ACTIVIDAD
 }
 
-model Material {
-  id           Int           @id @default(autoincrement())
-  leccion      Leccion       @relation(fields: [leccionId], references: [id])
-  leccionId    Int
-  tipo         TipoMaterial
-  descripcion  String
-  urlArchivo   String
-}
-
 enum TipoMaterial {
   PDF
   VIDEO
   ENLACE
 }
 
-model Inscripcion {
-  id             Int               @id @default(autoincrement())
-  usuario        Usuario           @relation(fields: [usuarioId], references: [id])
-  usuarioId      Int
-  curso          Curso             @relation(fields: [cursoId], references: [id])
-  cursoId        Int
-  fechaInscripcion DateTime       @default(now())
-  progresos      ProgresoLeccion[]
-  respuestas     RespuestaUsuario[]
-}
-
-model ProgresoLeccion {
-  id             Int             @id @default(autoincrement())
-  inscripcion    Inscripcion     @relation(fields: [inscripcionId], references: [id])
-  inscripcionId  Int
-  leccion        Leccion         @relation(fields: [leccionId], references: [id])
-  leccionId      Int
-  completado     Boolean
-  fechaCompletado DateTime?
-}
-
-model Evaluacion {
-  id           Int                  @id @default(autoincrement())
-  curso        Curso               @relation(fields: [cursoId], references: [id])
-  cursoId      Int
-  titulo       String
-  descripcion  String
-  tipo         TipoEvaluacion
-  respuestas   RespuestaUsuario[]  // 👈 ESTA LÍNEA ES LA CLAVE
-}
-
-
 enum TipoEvaluacion {
   QUIZ
   TRABAJO
-}
-
-model RespuestaUsuario {
-  id             Int           @id @default(autoincrement())
-  inscripcion    Inscripcion   @relation(fields: [inscripcionId], references: [id])
-  inscripcionId  Int
-  evaluacion     Evaluacion    @relation(fields: [evaluacionId], references: [id])
-  evaluacionId   Int
-  respuesta      String
-  fechaRespuesta DateTime      @default(now())
-}
-
-
-
-
-model Mensaje {
-  id           Int           @id @default(autoincrement())
-  emisor       Usuario       @relation("MensajesEnviados", fields: [emisorId], references: [id])
-  emisorId     Int
-  receptor     Usuario       @relation("MensajesRecibidos", fields: [receptorId], references: [id])
-  receptorId   Int
-  contenido    String
-  fechaEnvio   DateTime      @default(now())
 }

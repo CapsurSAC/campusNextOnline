@@ -1,64 +1,58 @@
 'use client';
 
-import React, { useState, ChangeEvent } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CertificadoPage() {
-  const [inscripcionId, setInscripcionId] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState('');
   const [error, setError] = useState('');
 
-  const handleGenerar = async () => {
-    if (!inscripcionId) {
-      setError('Por favor ingresa el ID de inscripción.');
-      return;
-    }
+  useEffect(() => {
+    let objectUrl: string;
 
-    setLoading(true);
-    setError('');
+    const fetchCertificado = async () => {
+      try {
+        const res = await fetch('/api/certificado', {
+          method: 'GET',
+          credentials: 'include',
+        });
 
-    try {
-      const res = await fetch(`/api/certificado?id=${inscripcionId}`);
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || 'Error al generar certificado');
+        }
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Error al generar el certificado.');
+        const blob = await res.blob();
+        objectUrl = URL.createObjectURL(blob);
+        setPdfUrl(objectUrl);
+      } catch (err: any) {
+        setError(err.message);
       }
+    };
 
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'certificado.pdf';
-      a.click();
-      URL.revokeObjectURL(url);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    fetchCertificado();
+
+    return () => {
+      if (objectUrl) URL.revokeObjectURL(objectUrl); // limpieza
+    };
+  }, []);
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded shadow text-black">
-      <h1 className="text-2xl font-bold mb-4 text-center">🎓 Generar Certificado</h1>
+    <main className="min-h-screen bg-slate-900 text-white p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center">🎓 Tu Certificado</h1>
 
-      <input
-        type="number"
-        placeholder="ID de inscripción"
-        value={inscripcionId}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setInscripcionId(e.target.value)}
-        className="w-full px-4 py-2 border rounded mb-4"
-      />
-
-      <button
-        onClick={handleGenerar}
-        disabled={loading}
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-      >
-        {loading ? 'Generando...' : 'Descargar Certificado'}
-      </button>
-
-      {error && <p className="mt-4 text-red-600 text-center">{error}</p>}
-    </div>
+      {error ? (
+        <p className="text-red-500 text-center">{error}</p>
+      ) : pdfUrl ? (
+        <div className="flex justify-center">
+          <iframe
+            src={`${pdfUrl}#view=FitH&navpanes=0`}
+            className="w-full max-w-4xl h-[80vh] rounded shadow-lg bg-white"
+            title="Certificado"
+          />
+        </div>
+      ) : (
+        <p className="text-center text-white/60">Generando certificado...</p>
+      )}
+    </main>
   );
 }
