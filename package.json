@@ -33,6 +33,7 @@
     "ahooks": "^3.8.1",
     "ai": "^3.2.15",
     "bcryptjs": "^3.0.2",
+    "classnames": "^2.5.1",
     "clsx": "2.1.1",
     "framer-motion": "^12.12.1",
     "intl-messageformat": "^10.5.0",

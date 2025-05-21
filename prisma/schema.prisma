@@ -52,6 +52,9 @@ model Leccion {
   progresos  ProgresoLeccion[]
 }
 
+
+
+
 model Material {
   id          Int          @id @default(autoincrement())
   leccionId   Int
@@ -78,8 +81,11 @@ model ProgresoLeccion {
   leccionId       Int
   completado      Boolean
   fechaCompletado DateTime?
+
   inscripcion     Inscripcion @relation(fields: [inscripcionId], references: [id])
   leccion         Leccion     @relation(fields: [leccionId], references: [id])
+
+  @@unique([inscripcionId, leccionId], name: "inscripcionId_leccionId") // ✅ NOMBRE EXPLÍCITO
 }
 
 model Evaluacion {
