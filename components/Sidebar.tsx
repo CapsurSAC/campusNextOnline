@@ -58,7 +58,7 @@ export default function SidebarContent() {
         {/* Menú de navegación */}
         <nav className="flex flex-col mt-6 w-full px-4 space-y-3">
           <SidebarLink href="/" icon={<LayoutDashboard size={20} />} label="Inicio" />
-          <SidebarLink href="/Lecciones" icon={<BookOpen size={20} />} label="Lecciones" />
+          <SidebarLink href="/cursos" icon={<BookOpen size={20} />} label="Mis Cursos" />
           <SidebarLink href="/sonidos" icon={<Volume2 size={20} />} label="Sonidos" />
           <SidebarLink href="/musica" icon={<Music size={20} />} label="Aprende con Música" />
           <SidebarLink href="/evaluaciones" icon={<FileText size={20} />} label="Evaluaciones" />
