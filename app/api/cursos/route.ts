@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
         duracionHoras: 8,
         estado: 'ACTIVO',
         inscripciones: {
-          create: [{ usuarioId: user.id }],
+          create: [{ usuarioId: user.userId }],
         },
       },
     });

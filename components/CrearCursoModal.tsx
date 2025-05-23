@@ -8,6 +8,7 @@ export default function CrearCursoModal({ onClose }: { onClose: () => void }) {
   const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
@@ -25,33 +26,42 @@ export default function CrearCursoModal({ onClose }: { onClose: () => void }) {
 
     setLoading(true);
     setError('');
+    setSuccess(false);
 
     try {
+      // Subir imagen
       const formData = new FormData();
       formData.append('file', file);
 
-      const res = await fetch('/api/upload', {
+      const resUpload = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await res.json();
+      if (!resUpload.ok) throw new Error('Error al subir imagen');
+
+      const data = await resUpload.json();
       const imagenUrl = data.url;
 
-        await fetch('/api/cursos', {
+      // Crear curso
+      const resCurso = await fetch('/api/cursos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, descripcion, imagen: imagenUrl }),
-        credentials: 'include', // ✅ Esto es CLAVE
-        });
+        credentials: 'include', // 👈 MUY IMPORTANTE
+      });
 
-        
+      if (!resCurso.ok) {
+        const error = await resCurso.json();
+        throw new Error(error.error || 'No se pudo crear el curso');
+      }
 
-
-      onClose();
+      setSuccess(true);
+      onClose(); // solo si todo sale bien
       window.location.reload();
-    } catch (err) {
-      setError('Error al crear el curso.');
+    } catch (err: any) {
+      console.error('Error:', err);
+      setError(err.message || 'Error al crear el curso.');
     } finally {
       setLoading(false);
     }
@@ -94,6 +104,7 @@ export default function CrearCursoModal({ onClose }: { onClose: () => void }) {
         )}
 
         {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+        {success && <p className="text-green-400 text-sm mb-3">Curso creado correctamente.</p>}
 
         <div className="flex justify-end gap-2">
           <button
