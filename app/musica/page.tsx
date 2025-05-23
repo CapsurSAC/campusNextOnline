@@ -1,31 +1,46 @@
 'use client';
 
 import React from 'react';
+import LyricsPlayer from '../../components/LyricsPlayer';
 
-const songs = [
+// ⬇️ Aquí defines el tipo Song con delay opcional
+type Song = {
+  title: string;
+  artist: string;
+  embedUrl: string;
+  lrcUrl?: string;
+  lyrics?: string;
+  delay?: number;
+};
+
+const songs: Song[] = [
   {
-    title: 'Hello Song',
-    artist: 'Super Simple Songs',
-    lyrics: `Hello, hello, how are you?\nI'm good, I'm great, I'm wonderful!`,
-    embedUrl: 'https://www.youtube.com/embed/tVlcKp3bWH8',
+    title: 'Happy',
+    artist: 'Pharrell Williams',
+    lrcUrl: '/lrc/happy.lrc', // Aquí el enlace al archivo en /public/lrc/
+    embedUrl: 'https://www.youtube.com/embed/ZbZSe6N_BXs?si=HGqCiO2Yr_mVezfd',
+    delay: +5.0,
   },
   {
-    title: 'The ABC Song',
-    artist: 'ABCkidTV',
-    lyrics: `A, B, C, D, E, F, G...\nNow I know my ABCs, next time won't you sing with me?`,
-    embedUrl: 'https://www.youtube.com/embed/36IBDpTRVNE',
+    title: 'Yesterday',
+    artist: 'The Beatles',
+    lrcUrl: '/lrc/yesterday.lrc', // Aquí el enlace al archivo en /public/lrc/
+    embedUrl: 'https://www.youtube.com/embed/NrgmdOz227I?si=QVfKMROfotul_eXm',
+    delay: +0.3,
   },
   {
-    title: 'If You’re Happy and You Know It',
-    artist: 'Super Simple Songs',
-    lyrics: `If you’re happy and you know it, clap your hands (clap clap)!`,
-    embedUrl: 'https://www.youtube.com/embed/l4WNrvVjiTw',
+    title: 'Lemon Tree',
+    artist: 'Fool’s Garden',
+    lrcUrl: '/lrc/LemonTree.lrc', // Aquí el enlace al archivo en /public/lrc/
+    embedUrl: 'https://www.youtube.com/embed/wCQfkEkePx8?si=50rBkLeFTTI6T1dn',
+    delay: 0,
   },
   {
-    title: 'The Colors Song',
-    artist: 'Songs for Littles',
-    lyrics: `Red, yellow, green and blue,\nThese are the colors just for you!`,
-    embedUrl: 'https://www.youtube.com/embed/3C1z4f9YTcw',
+    title: 'We Will Rock You',
+    artist: 'Queen',
+    lrcUrl: '/lrc/we will rock you.lrc', // Aquí el enlace al archivo en /public/lrc/
+    embedUrl: 'https://www.youtube.com/embed/-tJYN-eG1zk?si=c_nLX7XwNn1o72lb',
+    delay: -5.5,
   },
 ];
 
@@ -44,19 +59,29 @@ export default function MusicPage() {
             <h2 className="text-2xl font-semibold mb-2">{song.title}</h2>
             <p className="text-white/70 mb-4 italic">{song.artist}</p>
 
-            <div className="aspect-w-16 aspect-h-9 w-full rounded overflow-hidden mb-4">
-              <iframe
-                className="w-full h-full"
-                src={song.embedUrl}
-                title={song.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
+            {song.lrcUrl ? (
+              <LyricsPlayer
+                videoId={song.embedUrl.split('/embed/')[1].split('?')[0]}
+                lrcUrl={song.lrcUrl}
+                delay={song.delay ?? -0.3}
+              />
+            ) : (
+              <>
+                <div className="aspect-w-16 aspect-h-9 w-full rounded overflow-hidden mb-4">
+                  <iframe
+                    className="w-full h-full"
+                    src={song.embedUrl}
+                    title={song.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
 
-            <div className="bg-slate-800 text-white/90 text-sm p-3 rounded whitespace-pre-wrap">
-              {song.lyrics}
-            </div>
+                <div className="bg-slate-800 text-white/90 text-sm p-3 rounded whitespace-pre-wrap">
+                  {song.lyrics}
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>
