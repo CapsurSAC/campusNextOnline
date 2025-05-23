@@ -1,110 +1,89 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-const videosData: Record<string, { title: string; url: string; description: string }[]> = {
-  lesson1: [
-    {
-      title: 'Clase Demo',
-      url: 'https://www.youtube.com/embed/v-GkJPY29zU?si=S3r2STazIwGEb1zI',
-      description: 'Aprende a presentarte correctamente en distintos contextos.',
-    },
-    {
-      title: 'Daily Expressions and Farewells',
-      url: 'https://www.youtube.com/embed/ToYfUrsFs0w?si=XfNFcJ5LVlUmPo8Y',
-      description: 'Frases básicas para empezar y cerrar una conversación.',
-    },
-    {
-      title: 'Numbers and Dates',
-      url: 'https://www.youtube.com/embed/MyCs8v5p1Ro?si=2tUyT-BJ1YJiSk9o',
-      description: 'Expresiones para preguntar en inglés de forma simple.',
-    },
-    {
-      title: 'Classroom Language and Commands',
-      url: 'https://www.youtube.com/embed/hhRtSoFHUPM?si=YEjlww2ZNlzgyLhI',
-      description: 'Palabras clave para comunicarte en situaciones cotidianas.',
-    },
-  ],
+type Material = {
+  id: number;
+  tipo: 'PDF' | 'VIDEO' | 'ENLACE';
+  descripcion: string;
+  urlArchivo: string;
 };
 
 export default function LeccionDinamicaPage() {
   const { modulo, seccion, leccion } = useParams();
+  const [materiales, setMateriales] = useState<Material[]>([]);
 
-  const pdfs = [
-    `/slides/${leccion}/Leccion-11.pdf`,
-    `/slides/${leccion}/Leccion-12.pdf`,
-    `/slides/${leccion}/Leccion-13.pdf`,
-    `/slides/${leccion}/Leccion-14.pdf`,
-  ];
+  useEffect(() => {
+    const fetchMateriales = async () => {
+      try {
+        const res = await fetch(`/api/materiales/${leccion}`);
+        const data = await res.json();
+        setMateriales(data);
+      } catch (error) {
+        console.error('Error cargando materiales:', error);
+      }
+    };
 
-  const recursos = [
-    'Diccionario Visual Básico',
-    'Lista de Verbos Irregulares',
-    'Student Book PDF',
-    'Cuaderno de ejercicios',
-  ];
+    fetchMateriales();
+  }, [leccion]);
+
+  const materialesFiltrados = materiales.filter((m) => {
+    if (seccion === 'videos') return m.tipo === 'VIDEO';
+    if (seccion === 'diapositivas') return m.tipo === 'PDF';
+    if (seccion === 'recursos') return m.tipo === 'ENLACE';
+    return false;
+  });
 
   return (
-    <main className="text-white">
-      <h2 className="text-2xl font-bold mb-4 capitalize">
+    <div className="text-white p-6">
+      <h2 className="text-2xl font-bold mb-4">
         Módulo: {modulo} | Sección: {seccion} | Lección: {leccion}
       </h2>
 
-      {seccion === 'videos' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {videosData[leccion as string]?.map((video, idx) => (
-            <div key={idx} className="rounded-xl overflow-hidden">
-              <div className="aspect-video">
+      <div className="space-y-6">
+        {materialesFiltrados.length === 0 && (
+          <p className="text-white/70">No hay materiales disponibles para esta sección.</p>
+        )}
+
+        {seccion === 'videos' &&
+          materialesFiltrados.map((video) => (
+            <div key={video.id} className="mb-6">
+              <div className="aspect-video rounded overflow-hidden mb-2">
                 <iframe
-                  src={video.url}
-                  title={video.title}
-                  className="w-full h-full rounded"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                  src={video.urlArchivo}
+                  className="w-full h-full"
                   allowFullScreen
                 />
               </div>
-              <h3 className="text-lg font-bold mt-2">{video.title}</h3>
-              <p className="text-white/70 text-sm">{video.description}</p>
+              <p className="text-sm text-white/80">{video.descripcion}</p>
             </div>
           ))}
-        </div>
-      )}
 
-      {seccion === 'diapositivas' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {pdfs.map((url, idx) => (
-            <iframe
-              key={idx}
-              src={url}
-              className="w-full h-[400px] border border-white/10 rounded"
-            />
+        {seccion === 'diapositivas' &&
+          materialesFiltrados.map((pdf) => (
+            <div key={pdf.id} className="mb-6">
+              <iframe
+                src={pdf.urlArchivo}
+                className="w-full h-[600px] border border-white/10 rounded"
+              />
+              <p className="text-sm text-white/70 mt-1">{pdf.descripcion}</p>
+            </div>
           ))}
-        </div>
-      )}
 
-      {seccion === 'recursos' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {recursos.map((nombre, idx) => (
-            <div
-              key={idx}
-              className="bg-white/10 p-4 rounded shadow hover:shadow-lg transition"
-            >
-              <h4 className="font-semibold mb-2">{nombre}</h4>
+        {seccion === 'recursos' &&
+          materialesFiltrados.map((r) => (
+            <div key={r.id} className="mb-4">
               <a
-                href={`/pdfs/resource-${idx + 1}.pdf`}
+                href={r.urlArchivo}
+                className="text-blue-400 underline"
                 target="_blank"
-                className="text-blue-400 underline text-sm"
               >
-                Ver documento
+                {r.descripcion}
               </a>
             </div>
           ))}
-        </div>
-      )}
-
-      {seccion === 'june' && (
-        <p className="text-white/80">Aquí se integrará la clase en vivo con JUNE 🤖</p>
-      )}
-    </main>
+      </div>
+    </div>
   );
 }

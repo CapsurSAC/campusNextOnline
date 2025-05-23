@@ -1,25 +1,25 @@
 import { prisma } from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const cursoId = parseInt(params.id);
-
+export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const curso = await prisma.curso.findUnique({
-      where: { id: cursoId },
-      include: {
-        lecciones: true,
-        evaluaciones: true,
-        inscripciones: true,
+    const body = await req.json();
+    const { nombre, descripcion, imagen } = body;
+
+    const cursoActualizado = await prisma.curso.update({
+      where: {
+        id: Number(params.id),
+      },
+      data: {
+        titulo: nombre,
+        descripcion,
+        imagenPortada: imagen,
       },
     });
 
-    if (!curso) {
-      return NextResponse.json({ error: 'Curso no encontrado' }, { status: 404 });
-    }
-
-    return NextResponse.json(curso);
+    return NextResponse.json(cursoActualizado);
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener el curso' }, { status: 500 });
+    console.error('Error al actualizar curso:', error);
+    return NextResponse.json({ error: 'No se pudo actualizar el curso' }, { status: 500 });
   }
 }
