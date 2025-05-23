@@ -1,0 +1,46 @@
+
+@keyframes rainbowBorder {
+  0% { border-color: #ff0080; }
+  25% { border-color: #7928ca; }
+  50% { border-color: #2c90ff; }
+  75% { border-color: #00c896; }
+  100% { border-color: #ff0080; }
+}
+
+.animated-border {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.75rem;
+  animation: rainbowBorder 4s linear infinite;
+}
+
+.fancy-card {
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.fancy-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-button {
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.gradient-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #FC00FF;
+}

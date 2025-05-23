@@ -1,0 +1,35 @@
+{
+  "title": "Listen and Build the Sentence",
+  "exercises": [
+    {
+      "audio": "/audios/hello-how-are-you.mp3",
+      "display": "Hello, how are you?",
+      "answer": "Hello how are you ?",
+      "options": ["Hello", "how", "are", "you", "bye", "thanks", "?"]
+    },
+    {
+      "audio": "/audios/what-is-your-name.mp3",
+      "display": "What is your name?",
+      "answer": "What is your name ?",
+      "options": ["What", "is", "your", "name", "who", "me", "?"]
+    },
+    {
+      "audio": "/audios/i-am-a-student.mp3",
+      "display": "I am a student.",
+      "answer": "I am a student",
+      "options": ["I", "am", "a", "student", "teacher", "she"]
+    },
+    {
+      "audio": "/audios/nice-to-meet-you.mp3",
+      "display": "Nice to meet you.",
+      "answer": "Nice to meet you",
+      "options": ["Nice", "to", "meet", "you", "go", "fast"]
+    },
+    {
+      "audio": "/audios/where-do-you-live.mp3",
+      "display": "Where do you live?",
+      "answer": "Where do you live ?",
+      "options": ["Where", "do", "you", "live", "house", "here", "?"]
+    }
+  ]
+}
