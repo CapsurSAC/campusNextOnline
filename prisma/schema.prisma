@@ -12,7 +12,7 @@ model Usuario {
   nombre            String
   apellido          String
   email             String        @unique
-  contraseña       String
+  contraseña        String
   rol               RolUsuario
   fechaRegistro     DateTime      @default(now())
   telefono          String?

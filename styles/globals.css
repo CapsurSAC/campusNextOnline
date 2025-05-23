@@ -9,7 +9,6 @@ li {
 }
 
 body {
-  background-image: url('/bgjune.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -27,4 +26,48 @@ body {
 
 .input-field {
   @apply w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:ring-2 focus:ring-[#38BDF8] outline-none;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 5s ease infinite;
+}
+
+.intro-background {
+  position: relative;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+  overflow: hidden;
+}
+
+.intro-background::before,
+.intro-background::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.intro-background::before {
+  background: #00ffff;
+  top: -100px;
+  left: -100px;
+}
+
+.intro-background::after {
+  background: #ff00ff;
+  bottom: -100px;
+  right: -100px;
 }

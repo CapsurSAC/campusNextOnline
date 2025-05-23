@@ -10,6 +10,8 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
     "@heygen/streaming-avatar": "^2.0.13",
     "@nextui-org/chip": "2.2.6",
     "@nextui-org/code": "2.0.29",
@@ -23,6 +25,7 @@
     "@nextui-org/switch": "2.0.31",
     "@nextui-org/system": "^2.4.6",
     "@nextui-org/theme": "2.2.5",
+    "@pdf-lib/fontkit": "^1.1.1",
     "@phosphor-icons/react": "^2.1.5",
     "@prisma/client": "^6.6.0",
     "@react-aria/ssr": "3.9.4",
@@ -34,6 +37,7 @@
     "ai": "^3.2.15",
     "bcryptjs": "^3.0.2",
     "clsx": "2.1.1",
+    "fontkit": "^2.0.4",
     "framer-motion": "^12.12.1",
     "intl-messageformat": "^10.5.0",
     "jsonwebtoken": "^9.0.2",
