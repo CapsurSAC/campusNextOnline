@@ -71,3 +71,68 @@ body {
   bottom: -100px;
   right: -100px;
 }
+
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  opacity: 0.3; /* puedes ajustar si es muy fuerte o débil */
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+
+
+
+.wave-wrapper {
+  width: 1500px;
+  height: 1000px;
+  min-height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  overflow: hidden;
+  z-index: 0;
+  background-color: #0F172A; /* fondo oscuro fijo */
+}
+
+.wave-section {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+}
+
+.dash {
+  stroke-dasharray: 700;
+  animation: dash 15s linear infinite;
+  stroke: rgba(45, 80, 135, 0.5); /* azul más claro pero sobrio */
+}
+
+.dash_0 { animation-delay: 0s; }
+.dash_1 { transform: translateY(100px); animation-delay: 2.5s; }
+.dash_2 { transform: translateY(200px); animation-delay: 6s; }
+.dash_3 { transform: translateY(300px); animation-delay: 4s; }
+.dash_4 { transform: translateY(400px); animation-delay: 1s; }
+.dash_5 { transform: translateY(500px); animation-delay: 5s; }
+.dash_6 { transform: translateY(600px); animation-delay: 3s; }
+.dash_7 { transform: translateY(700px); animation-delay: 1.5s; }
+.dash_8 { transform: translateY(800px); animation-delay: 5.5s; }
+.dash_9 { transform: translateY(900px); animation-delay: 1s; }
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 10;
+    stroke: rgba(45, 80, 135, 0.5);
+  }
+  50% {
+    stroke: rgba(30, 110, 160, 0.45); /* cyan más definido */
+  }
+  100% {
+    stroke-dashoffset: 9800;
+    stroke: rgba(45, 80, 135, 0.5);
+  }
+}
