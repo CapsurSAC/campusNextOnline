@@ -25,6 +25,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   try {
     const nuevaLeccion = await prisma.leccion.create({
       data: {
+        
         cursoId,
         titulo,
         contenido,
