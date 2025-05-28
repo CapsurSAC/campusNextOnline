@@ -24,7 +24,11 @@ export async function DELETE(
   _: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const leccionId = parseInt(params.id);
 
+  try {
+    await prisma.leccion.delete({
+      where: { id: leccionId },
     });
 
     return NextResponse.json({ message: 'Lección eliminada' });
@@ -38,7 +42,22 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
+    const id = parseInt(params.id);
+    const body = await req.json();
+    const { titulo, contenido, disponible } = body;
 
+    const data: any = {};
+    if (titulo !== undefined) data.titulo = titulo;
+    if (contenido !== undefined) data.contenido = contenido;
+    if (disponible !== undefined) data.disponible = disponible;
+
+    const leccion = await prisma.leccion.update({
+      where: { id },
+      data,
+    });
+
+    return NextResponse.json(leccion);
+  } catch (error) {
     return NextResponse.json({ error: 'Error al actualizar lección' }, { status: 500 });
   }
 }
