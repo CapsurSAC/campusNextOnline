@@ -41,16 +41,20 @@ model Curso {
 }
 
 model Leccion {
-  id         Int               @id @default(autoincrement())
-  cursoId    Int
-  titulo     String
-  contenido  String
-  orden      Int
-  tipo       TipoLeccion
-  curso      Curso             @relation(fields: [cursoId], references: [id])
-  materiales Material[]
-  progresos  ProgresoLeccion[]
+  id          Int               @id @default(autoincrement())
+  cursoId     Int
+  titulo      String
+  contenido   String
+  orden       Int
+  disponible  Boolean           @default(false) // 👈 este es el nuevo campo
+  curso       Curso             @relation(fields: [cursoId], references: [id])
+  materiales  Material[]
+  progresos   ProgresoLeccion[]
 }
+
+
+
+
 
 model Material {
   id          Int          @id @default(autoincrement())
@@ -78,8 +82,11 @@ model ProgresoLeccion {
   leccionId       Int
   completado      Boolean
   fechaCompletado DateTime?
+
   inscripcion     Inscripcion @relation(fields: [inscripcionId], references: [id])
   leccion         Leccion     @relation(fields: [leccionId], references: [id])
+
+  @@unique([inscripcionId, leccionId], name: "inscripcionId_leccionId") // ✅ NOMBRE EXPLÍCITO
 }
 
 model Evaluacion {
@@ -132,6 +139,7 @@ enum TipoMaterial {
   PDF
   VIDEO
   ENLACE
+  CLASE_JUNE
 }
 
 enum TipoEvaluacion {

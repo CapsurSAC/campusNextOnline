@@ -1,77 +1,117 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { FaBookOpen, FaCheckCircle } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaBookOpen, FaLock } from 'react-icons/fa';
+import classNames from 'classnames';
 
-const modules = [
+const modulos = [
   {
-    title: 'Módulo 1: Fundamentos del Inglés',
-    description: 'Saludos, presentaciones y frases básicas.',
-    href: '/Lecciones/modulo1',
-    unlocked: true,
+    id: '1', // ID real de cursoId
+    slug: 'modulo1',
+    titulo: 'Módulo 1: Fundamentos del Inglés',
+    descripcion: 'Saludos, presentaciones y frases básicas.',
   },
   {
-    title: 'Módulo 2: El Presente Simple',
-    description: 'Verbo to be, rutinas y estructuras del presente.',
-    href: '/Lecciones/modulo2',
-    unlocked: false,
+    id: '2',
+    slug: 'modulo2',
+    titulo: 'Módulo 2: El Presente Simple',
+    descripcion: 'Verbo to be, rutinas y estructuras del presente.',
   },
   {
-    title: 'Módulo 3: Interacción Cotidiana',
-    description: 'Conversaciones comunes y preguntas frecuentes.',
-    href: '/Lecciones/modulo3',
-    unlocked: false,
+    id: '3',
+    slug: 'modulo3',
+    titulo: 'Módulo 3: Interacción Cotidiana',
+    descripcion: 'Conversaciones comunes y preguntas frecuentes.',
   },
   {
-    title: 'Módulo 4: Comunicación Activa',
-    description: 'Vocabulario avanzado y diálogos extendidos.',
-    href: '/Lecciones/modulo4',
-    unlocked: true,
+    id: '4',
+    slug: 'modulo4',
+    titulo: 'Módulo 4: Comunicación Activa',
+    descripcion: 'Vocabulario avanzado y diálogos extendidos.',
   },
 ];
 
 export default function LeccionesPage() {
+  const [progresos, setProgresos] = useState<Record<string, number>>({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const cargarProgresos = async () => {
+      for (const modulo of modulos) {
+        try {
+          const res = await fetch(`/api/progreso/modulo/${modulo.id}`);
+          const data = await res.json();
+          setProgresos((prev) => ({ ...prev, [modulo.id]: data.progreso ?? 0 }));
+        } catch (err) {
+          console.error('Error cargando progreso de módulo', modulo.id);
+        }
+      }
+      setLoading(false);
+    };
+
+    cargarProgresos();
+  }, []);
+
   return (
-    <div className="ml-1 p-6 min-h-screen bg-slate-800 text-white">
-      <h1 className="text-4xl font-extrabold mb-8 flex items-center gap-4">
+    <div className="p-6 min-h-screen bg-slate-900 text-white">
+      <h1 className="text-4xl font-extrabold mb-10 flex items-center gap-4">
         <FaBookOpen size={36} /> Lecciones de Inglés Básico
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {modules.map(({ title, description, href, unlocked }, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.015 }}
-            className={`relative rounded-2xl p-6 transition-shadow shadow-xl min-h-[180px] ${
-              unlocked
-                ? 'bg-gradient-to-br from-green-500/20 to-green-700/10 border border-green-400 hover:shadow-green-400/40'
-                : 'bg-gradient-to-br from-yellow-500/10 to-yellow-700/10 border border-yellow-400 opacity-90'
-            }`}
-          >
-            {unlocked ? (
-              <Link href={href}>
-                <div className="flex flex-col justify-between h-full">
-                  <h2 className="text-2xl font-bold mb-2">{title}</h2>
-                  <p className="text-white/80 text-base">{description}</p>
+        {modulos.map((modulo) => {
+          const progreso = progresos[modulo.id] ?? 0;
+          const completado = progreso === 100;
+
+          return (
+            <motion.div
+              key={modulo.id}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              className="rounded-2xl border border-white/10 bg-gradient-to-br from-sky-950 to-sky-900 hover:from-sky-900 hover:to-sky-800 p-6 shadow-lg hover:shadow-blue-500/20 group"
+            >
+              <Link href={`/Lecciones/${modulo.slug}/diapositivas/lesson1`} className="block h-full">
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h2 className="text-2xl font-bold group-hover:text-blue-400 transition-colors">
+                        {modulo.titulo}
+                      </h2>
+                      {completado && (
+                        <span className="flex items-center gap-1 text-green-400 text-sm">
+                          <FaCheckCircle className="text-green-400" /> Completado
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-white/70 text-sm mb-4">{modulo.descripcion}</p>
+
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div
+                        className={classNames('h-2 rounded-full transition-all', {
+                          'bg-green-500': completado,
+                          'bg-blue-500': !completado,
+                        })}
+                        style={{ width: `${progreso}%` }}
+                      />
+                    </div>
+
+                    <p className="text-xs text-right text-white/50 mt-1">
+                      {loading ? 'Cargando...' : `${progreso}% completado`}
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    <span className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-full text-sm transition">
+                      Ver lecciones →
+                    </span>
+                  </div>
                 </div>
               </Link>
-            ) : (
-              <div className="relative group cursor-not-allowed h-full flex flex-col justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">{title}</h2>
-                  <p className="text-white/70 text-base">{description}</p>
-                </div>
-                <div className="flex items-center gap-2 text-yellow-300 mt-4">
-                  <FaLock />
-                  <span className="text-sm group-hover:underline">
-                    Módulo no disponible aún
-                  </span>
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );

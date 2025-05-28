@@ -1,32 +1,36 @@
 'use client';
 
-import { useUser } from '@/hooks/useUser';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import AnimatedWaves from '@/components/AnimatedWaves'; // Asegúrate que esta ruta esté correcta
+
 
 export default function HomePage() {
-  const { user, loading } = useUser();
+
+  const { user, loading: userLoading } = useUser();
+  const { cursos, loading: cursosLoading } = useMisCursos();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!loading && !user) {
+    useEffect(() => {
+    if (!userLoading && !user) {
       router.push('/login');
     }
-  }, [user, loading]);
+    }, [user, userLoading]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-white">
-        <p className="text-lg font-semibold animate-pulse">Cargando tu información...</p>
-      </div>
-    );
-  }
+
 
   if (!user) return null;
 
+  // Si el usuario no está inscrito en ningún curso
+  if (cursos.length === 0) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
+        <div className="text-center max-w-md space-y-4">
+          <h2 className="text-2xl font-bold">¡Hola {user.nombre || user.email}!</h2>
+          <p className="text-white/70">
+            Actualmente no estás inscrito en ningún curso. Contacta al administrador para poder acceder a las lecciones, evaluaciones y certificado.
+          </p>
+        </div>
+      </main>
+    );
+  }
   return (
     <main className="relative min-h-screen overflow-hidden text-white font-sans">
       {/* Fondo animado en z-0 */}
