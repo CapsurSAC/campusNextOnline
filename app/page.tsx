@@ -1,46 +1,75 @@
 'use client';
 
-
+import { useUser } from '@/hooks/useUser';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import AnimatedWaves from '@/components/AnimatedWaves';
 
 export default function HomePage() {
-
-  const { user, loading: userLoading } = useUser();
-  const { cursos, loading: cursosLoading } = useMisCursos();
+  const { user, loading } = useUser();
   const router = useRouter();
 
-    useEffect(() => {
-    if (!userLoading && !user) {
+  const [audioSrc, setAudioSrc] = useState<string | null>(null);
+  const [currentTip, setCurrentTip] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const audios = [
+    'Askquestionswhenyoudontunderstand.mp3',
+    'Learnvocabularyincontext.mp3',
+    'ListentoEnglishmusicorpodcasts.mp3',
+    'Practicepronunciationdaily.mp3',
+    'Practicewithalanguagepartner.mp3',
+    'Repeatwordsandphrasesaloud.mp3',
+    'Staypatientandpracticeconsistently.mp3',
+    'WatchmovieswithEnglishsubtitles.mp3',
+  ];
+
+  const playRandomAudio = () => {
+  // Asegúrate de que la variable `randomFile` no esté declarada en un scope superior
+  const randomIndex = Math.floor(Math.random() * audios.length);
+  const selectedFile = audios[randomIndex];
+
+  const fullPath = `/tips/audios/${selectedFile}`;
+  setAudioSrc(fullPath);
+
+  // setCurrentTip espera un string, y `replace()` ya devuelve un string
+  setCurrentTip(selectedFile.replace('.mp3', ''));
+
+  setTimeout(() => {
+    audioRef.current?.play();
+  }, 100);
+};
+
+
+  useEffect(() => {
+    if (!loading && !user) {
       router.push('/login');
     }
-    }, [user, userLoading]);
+  }, [user, loading]);
 
-
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-white">
+        <p className="text-lg font-semibold animate-pulse">Cargando tu información...</p>
+      </div>
+    );
+  }
 
   if (!user) return null;
 
-  // Si el usuario no está inscrito en ningún curso
-  if (cursos.length === 0) {
-    return (
-      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
-        <div className="text-center max-w-md space-y-4">
-          <h2 className="text-2xl font-bold">¡Hola {user.nombre || user.email}!</h2>
-          <p className="text-white/70">
-            Actualmente no estás inscrito en ningún curso. Contacta al administrador para poder acceder a las lecciones, evaluaciones y certificado.
-          </p>
-        </div>
-      </main>
-    );
-  }
+  const cardStyles = "bg-[#181c22]/80 min-h-[420px] rounded-2xl p-8 shadow-lg border border-white/10 backdrop-blur flex flex-col justify-between";
+
+
   return (
     <main className="relative min-h-screen overflow-hidden text-white font-sans">
-      {/* Fondo animado en z-0 */}
       <div className="absolute inset-0 z-0">
         <AnimatedWaves />
       </div>
 
-      {/* Contenido principal en z-10 */}
       <div className="relative z-10 px-6 py-14">
-        {/* ENCABEZADO */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,21 +77,23 @@ export default function HomePage() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl font-extrabold tracking-tight text-teal-400 drop-shadow">
-            ¡Hola, <span className="text-white">{user.email}</span>!
+            ¡Hola, <span className="text-white">{user.nombre}</span>!
           </h1>
           <p className="text-gray-200 text-lg mt-3 max-w-2xl mx-auto">
             Este es tu panel personalizado para seguir aprendiendo con IA, música y recomendaciones de JUNE.
           </p>
         </motion.div>
 
-        {/* LAYOUT PRINCIPAL */}
-        <section className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        {/* Las 3 tarjetas en fila */}
+        <section className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+         
+
           {/* JUNE te recomienda */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-[#181c22]/80 rounded-2xl p-8 shadow-lg border border-white/10 backdrop-blur"
+            className={cardStyles}
           >
             <div className="flex flex-col items-center text-center">
               <Image
@@ -80,23 +111,37 @@ export default function HomePage() {
                 <button className="flex-1 bg-blue-600 hover:bg-blue-700 transition rounded-lg py-2 text-sm font-medium shadow">
                   📘 Clase del día
                 </button>
-                <button className="flex-1 bg-pink-600 hover:bg-pink-700 transition rounded-lg py-2 text-sm font-medium shadow">
+                <button
+                  onClick={playRandomAudio}
+                  className="flex-1 bg-pink-600 hover:bg-pink-700 transition rounded-lg py-2 text-sm font-medium shadow"
+                >
                   🎧 Consejo en audio
                 </button>
               </div>
+              {isPlaying && (
+                <p className="text-4xl text-pink-400 mt-4 animate-pulse">🔊</p>
+              )}
+              {audioSrc && (
+                <audio
+                  ref={audioRef}
+                  src={audioSrc}
+                  hidden
+                  onPlay={() => setIsPlaying(true)}
+                  onEnded={() => setIsPlaying(false)}
+                />
+              )}
             </div>
           </motion.div>
 
-          {/* Progreso */}
+          {/* Tu progreso */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="bg-[#181c22]/80 rounded-2xl p-8 shadow-lg border border-white/10 backdrop-blur"
+            className={cardStyles}
           >
             <h2 className="text-2xl font-bold text-center mb-6">📈 Tu progreso</h2>
             <div className="flex flex-col items-center gap-8">
-              {/* Progreso circular */}
               <div className="relative w-28 h-28">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <path
@@ -121,7 +166,6 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Progreso barra */}
               <div className="w-full max-w-xs">
                 <p className="text-sm font-medium text-white mb-2">Vocabulario aprendido</p>
                 <div className="w-full h-3 bg-gray-700 rounded-full overflow-hidden">
@@ -135,6 +179,27 @@ export default function HomePage() {
                 <p className="text-right text-xs text-gray-400 mt-1">80% completado</p>
                 <p className="text-xs text-gray-400 mt-2">Has completado 13 de 20 módulos.</p>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Música recomendada */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className={cardStyles}
+          >
+            <div>
+              <h2 className="text-2xl font-bold text-center mb-4">🎵 Música recomendada</h2>
+              <iframe
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+                width="100%"
+                height="280"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="rounded-lg"
+              ></iframe>
             </div>
           </motion.div>
         </section>
