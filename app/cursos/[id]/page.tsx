@@ -32,6 +32,7 @@ export default function CursoPage() {
         {lecciones.map((modulo) => (
           <div
             key={modulo.id}
+            
             onClick={() => router.push(`/cursos/${id}/lecciones/${modulo.id}`)}
             className="cursor-pointer bg-gray-800 border border-gray-600 rounded-lg p-4 shadow hover:border-blue-500 transition"
           >

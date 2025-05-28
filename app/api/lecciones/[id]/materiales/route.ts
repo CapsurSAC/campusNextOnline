@@ -11,6 +11,8 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
       orderBy: { id: 'asc' },
     });
 
+
+    
     return NextResponse.json(materiales);
   } catch (error) {
     return NextResponse.json({ error: 'Error al obtener materiales' }, { status: 500 });
