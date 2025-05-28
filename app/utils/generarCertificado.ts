@@ -1,4 +1,5 @@
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+import { PDFDocument, rgb } from 'pdf-lib';
+import * as fontkit from 'fontkit';
 import fs from 'fs';
 import path from 'path';
 import { prisma } from '@/lib/prisma';
@@ -15,19 +16,32 @@ export async function generarCertificado(inscripcionId: number): Promise<Uint8Ar
   if (!inscripcion) throw new Error('Inscripción no encontrada');
 
   const templatePath = path.join(process.cwd(), 'public', 'plantilla.pdf');
-  const buffer = fs.readFileSync(templatePath);
-  const pdfDoc = await PDFDocument.load(new Uint8Array(buffer));
+  const fontPath = path.join(process.cwd(), 'public', 'fonts', 'Poppins-Bold.ttf');
 
+  const templateBuffer = fs.readFileSync(templatePath);
+  const fontBuffer = fs.readFileSync(fontPath);
+
+  const pdfDoc = await PDFDocument.load(templateBuffer);
+
+  // 👇 REGISTRAR FONTKIT para usar fuentes personalizadas
+  pdfDoc.registerFontkit(fontkit);
+
+  const customFont = await pdfDoc.embedFont(fontBuffer);
   const page = pdfDoc.getPage(0);
-  const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
   const nombre = `${inscripcion.usuario.nombre} ${inscripcion.usuario.apellido}`;
   const curso = inscripcion.curso.titulo;
   const fecha = new Date().toLocaleDateString('es-PE');
 
-  page.drawText(nombre, { x: 200, y: 300, size: 24, font, color: rgb(0, 0, 0) });
-  page.drawText(curso, { x: 200, y: 270, size: 20, font, color: rgb(0, 0, 0) });
-  page.drawText(fecha, { x: 200, y: 240, size: 16, font, color: rgb(0, 0, 0) });
+  const width = page.getWidth();
+
+  const xNombre = (width - customFont.widthOfTextAtSize(nombre, 24)) / 2;
+  const xCurso = (width - customFont.widthOfTextAtSize(curso, 20)) / 2;
+  const xFecha = (width - customFont.widthOfTextAtSize(fecha, 16)) / 2;
+
+  page.drawText(nombre, { x: xNombre, y: 290, size: 24, font: customFont, color: rgb(0, 0, 0) });
+  page.drawText(curso, { x: xCurso, y: 260, size: 20, font: customFont, color: rgb(0, 0, 0) });
+  page.drawText(fecha, { x: xFecha, y: 230, size: 16, font: customFont, color: rgb(0, 0, 0) });
 
   return await pdfDoc.save();
 }

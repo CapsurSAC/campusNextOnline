@@ -41,7 +41,6 @@ const [user, setUser] = useState<{ rol: string } | null>(null);
     fetch(`/api/lecciones/${leccionId}/materiales`)
       .then(res => res.json())
       .then(setMateriales);
-      
     fetch('/api/auth/me') // ✅ obtiene el usuario actual
     .then(res => res.json())
     .then(data => setUser(data.user));
@@ -112,17 +111,17 @@ const [user, setUser] = useState<{ rol: string } | null>(null);
         </ul>
       )}
       {modalOpen && (
-        <UploadMaterialModal
-            leccionId={Number(leccionId)}
-            tipoMaterial={activo}
-            onClose={() => setModalOpen(false)}
-            onSuccess={() => {
-            fetch(`/api/lecciones/${leccionId}/materiales`)
-                .then(res => res.json())
-                .then(setMateriales);
-            }}
-        />
-        )}
+    <UploadMaterialModal
+        leccionId={Number(leccionId)}
+        tipoMaterial={activo}
+        onClose={() => setModalOpen(false)}
+        onSuccess={() => {
+        fetch(`/api/lecciones/${leccionId}/materiales`)
+            .then(res => res.json())
+            .then(setMateriales);
+        }}
+    />
+    )}
 
     </div>
   );

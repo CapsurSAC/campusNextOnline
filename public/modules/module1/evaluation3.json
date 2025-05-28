@@ -1,0 +1,62 @@
+{
+  "title": "Evaluación Dinámica",
+  "questions": [
+    {
+      "type": "audio-complete",
+      "text": "They ____ at the park every Sunday.",
+      "answers": ["play"],
+      "hint": "Verbo de actividad recreativa en presente"
+    },
+    {
+      "type": "build-sentence",
+      "correct": "My brother is watching TV now",
+      "words": ["is", "watching", "My", "brother", "TV", "now"]
+    },
+    {
+      "type": "multiple-choice",
+      "question": "What do they usually eat for lunch?",
+      "options": ["Salad", "Cake", "Cereal"],
+      "answer": "Salad"
+    },
+    {
+      "type": "audio-complete",
+      "text": "She ____ to music every evening.",
+      "answers": ["listens"],
+      "hint": "Presente simple, tercera persona"
+    },
+    {
+      "type": "build-sentence",
+      "correct": "We are going to the cinema tonight",
+      "words": ["We", "are", "going", "to", "the", "cinema", "tonight"]
+    },
+    {
+      "type": "multiple-choice",
+      "question": "Where is John going?",
+      "options": ["To the gym", "To eats", "Go John"],
+      "answer": "To the gym"
+    },
+    {
+      "type": "audio-complete",
+      "text": "I ____ my homework before dinner.",
+      "answers": ["do"],
+      "hint": "Presente habitual con 'I'"
+    },
+    {
+      "type": "build-sentence",
+      "correct": "They have visited London twice",
+      "words": ["They", "have", "visited", "London", "twice"]
+    },
+    {
+      "type": "multiple-choice",
+      "question": "What time does the train leave?",
+      "options": ["At 10 AM", "Leaves 2", "Train 8 PM"],
+      "answer": "At 10 AM"
+    },
+    {
+      "type": "audio-complete",
+      "text": "We ____ breakfast at 7 o'clock.",
+      "answers": ["have"],
+      "hint": "Presente simple con 'we'"
+    }
+  ]
+}

@@ -2,11 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Lock, CheckCircle } from 'lucide-react';
-import { useUser } from '@/hooks/useUser';
-import { useMisCursos } from '@/hooks/useMisCursos';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+
 
 export default function EvaluacionesPage() {
   const { user, loading: userLoading } = useUser();
@@ -41,39 +37,41 @@ export default function EvaluacionesPage() {
   }
 
   return (
-    <main className="px-6 pt-6 pb-12 min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <motion.section
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-10"
-      >
-        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent drop-shadow">
-          Selecciona tu nivel para evaluar
-        </h1>
-        <p className="text-white/70 mt-3 max-w-xl mx-auto">
-          Comienza por el nivel básico y desbloquea los siguientes al avanzar en tu formación con JUNE.
-        </p>
-      </motion.section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-5xl font-extrabold drop-shadow tracking-tight">
+          🚀 Selecciona tu <span className="text-purple-400">nivel</span> para evaluar
+        </h1>
+        <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
+          Comienza con el básico y desbloquea los niveles superiores a medida que avanzas con <strong className="text-white">JUNE</strong>.
+        </p>
+        {/* Barra de progreso opcional */}
+        <div className="mt-6 w-72 mx-auto bg-white/10 rounded-full h-2 overflow-hidden">
+          <div className="bg-green-400 h-full w-1/3 transition-all duration-500"></div>
+        </div>
+      </motion.div>
+
+
         <LevelCard
           title="Nivel Básico"
           description="Evalúa lo aprendido en tus primeras lecciones."
-          icon={<CheckCircle className="text-green-400" size={36} />}
+          icon={<CheckCircle size={48} className="text-green-400" />}
           href="/evaluaciones/basico"
           locked={false}
         />
         <LevelCard
           title="Nivel Intermedio"
           description="Desbloquea este nivel completando el módulo básico."
-          icon={<Lock className="text-yellow-300" size={36} />}
+          icon={<Lock size={48} className="text-yellow-300" />}
           locked
         />
         <LevelCard
           title="Nivel Avanzado"
           description="Completa los niveles anteriores para acceder."
-          icon={<Lock className="text-red-400" size={36} />}
+          icon={<ShieldCheck size={48} className="text-red-400" />}
           locked
         />
       </div>
@@ -94,21 +92,47 @@ function LevelCard({
   href?: string;
   locked?: boolean;
 }) {
+  const animatedIcon = !locked ? (
+    <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ repeat: Infinity, duration: 2 }}>
+      {icon}
+    </motion.div>
+  ) : (
+    icon
+  );
+
   const card = (
     <motion.div
-      whileHover={!locked ? { scale: 1.03 } : {}}
-      whileTap={!locked ? { scale: 0.97 } : {}}
-      className={`p-6 rounded-xl backdrop-blur-lg shadow-lg transition cursor-pointer ${
-        locked ? 'bg-white/10 opacity-50 cursor-not-allowed' : 'bg-white/10 hover:bg-white/20'
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className={`relative group rounded-3xl p-6 border transition-all duration-300 backdrop-blur-md ${
+        locked
+          ? 'bg-gray-700 border-white/10 opacity-40 cursor-not-allowed'
+          : 'bg-[#1b1b2f] border-white/10 hover:border-violet-500 hover:shadow-violet-500/20 cursor-pointer'
       }`}
     >
-      <div className="flex flex-col items-center text-center space-y-3">
-        <div>{icon}</div>
-        <h2 className="text-xl font-bold">{title}</h2>
+      {!locked && (
+        <div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 blur opacity-0 group-hover:opacity-20 transition" />
+      )}
+      <div className="relative flex flex-col items-center text-center gap-5 z-10">
+        <div className="p-4 bg-white/10 rounded-full shadow-inner">{animatedIcon}</div>
+        <h3 className="text-2xl font-bold tracking-tight">
+          {locked ? (
+            <span className="group relative">
+              {title}
+              <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs bg-white text-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+                Termina el anterior primero
+              </span>
+            </span>
+          ) : (
+            title
+          )}
+        </h3>
         <p className="text-sm text-white/80">{description}</p>
       </div>
     </motion.div>
   );
 
   return locked ? <div>{card}</div> : <Link href={href ?? '#'}>{card}</Link>;
-}
+

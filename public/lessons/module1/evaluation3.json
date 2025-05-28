@@ -1,0 +1,25 @@
+{
+  "title": "Evaluación Dinámica",
+  "questions": [
+    {
+      "type": "audio-complete",
+      "audio": "/audios/q1.mp3",
+      "text": "I ____ to school every day.",
+      "answers": ["go"],
+      "hint": "Presente simple con 'I'"
+    },
+    {
+      "type": "build-sentence",
+      "audio": "/audios/q2.mp3",
+      "correct": "She drinks coffee in the morning",
+      "words": ["coffee", "drinks", "morning", "in", "She"]
+    },
+    {
+      "type": "multiple-choice",
+      "audio": "/audios/q3.mp3",
+      "question": "What does he do every morning?",
+      "options": ["He runs", "He cooks", "He sleeps"],
+      "answer": "He runs"
+    }
+  ]
+}

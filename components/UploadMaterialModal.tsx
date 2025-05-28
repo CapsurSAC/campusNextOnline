@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 type Props = {
   leccionId: number;
-  tipoMaterial: 'VIDEO' | 'PDF' | 'ENLACE';
+   tipoMaterial: 'VIDEO' | 'PDF' | 'ENLACE' | 'CLASE_JUNE';
   onClose: () => void;
   onSuccess: () => void;
 };
