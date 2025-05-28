@@ -40,6 +40,7 @@
     "clsx": "2.1.1",
     "fontkit": "^2.0.4",
     "framer-motion": "^12.12.1",
+    "gsap": "^3.13.0",
     "intl-messageformat": "^10.5.0",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
@@ -52,6 +53,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
+    "three": "^0.176.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -61,6 +63,7 @@
     "@types/node": "^20.17.47",
     "@types/react": "^18.3.21",
     "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.176.0",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
     "autoprefixer": "10.4.19",
