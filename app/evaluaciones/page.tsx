@@ -2,42 +2,14 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+import { Lock, CheckCircle, ShieldCheck } from 'lucide-react';
 
 export default function EvaluacionesPage() {
-  const { user, loading: userLoading } = useUser();
-  const { cursos, loading: cursosLoading } = useMisCursos();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!userLoading && !user) {
-      router.push('/login');
-    }
-  }, [user, userLoading]);
-
-  if (userLoading || cursosLoading) {
-    return (
-      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900">
-        <p className="text-lg font-semibold animate-pulse">Cargando evaluaciones...</p>
-      </main>
-    );
-  }
-
-  if (!user || cursos.length === 0) {
-    return (
-      <main className="min-h-screen flex items-center justify-center text-white bg-slate-900 px-4">
-        <div className="text-center max-w-md space-y-4">
-          <h2 className="text-2xl font-bold">Acceso denegado</h2>
-          <p className="text-white/70">
-            Necesitas estar inscrito en al menos un curso para ver las evaluaciones. Contacta al administrador.
-          </p>
-        </div>
-      </main>
-    );
-  }
-
   return (
-
+    <main className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white px-6 py-20">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
@@ -54,7 +26,8 @@ export default function EvaluacionesPage() {
         </div>
       </motion.div>
 
-
+      {/* Tarjetas */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-2">
         <LevelCard
           title="Nivel Básico"
           description="Evalúa lo aprendido en tus primeras lecciones."
@@ -135,4 +108,4 @@ function LevelCard({
   );
 
   return locked ? <div>{card}</div> : <Link href={href ?? '#'}>{card}</Link>;
-
+}

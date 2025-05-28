@@ -25,6 +25,7 @@ export default function EditLeccionModal({
     setError('');
 
     try {
+        
       await fetch(`/api/lecciones/${leccion.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
