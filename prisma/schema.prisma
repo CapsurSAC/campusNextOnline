@@ -41,15 +41,17 @@ model Curso {
 }
 
 model Leccion {
-  id         Int               @id @default(autoincrement())
-  cursoId    Int
-  titulo     String
-  contenido  String
-  orden      Int
-  curso      Curso             @relation(fields: [cursoId], references: [id])
-  materiales Material[]
-  progresos  ProgresoLeccion[]
+  id          Int               @id @default(autoincrement())
+  cursoId     Int
+  titulo      String
+  contenido   String
+  orden       Int
+  disponible  Boolean           @default(false) // 👈 este es el nuevo campo
+  curso       Curso             @relation(fields: [cursoId], references: [id])
+  materiales  Material[]
+  progresos   ProgresoLeccion[]
 }
+
 
 
 
