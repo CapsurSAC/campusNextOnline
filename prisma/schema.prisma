@@ -90,13 +90,26 @@ model ProgresoLeccion {
 }
 
 model Evaluacion {
-  id          Int                @id @default(autoincrement())
+  id          Int                  @id @default(autoincrement())
   cursoId     Int
   titulo      String
   descripcion String
   tipo        TipoEvaluacion
-  curso       Curso              @relation(fields: [cursoId], references: [id])
+  curso       Curso                @relation(fields: [cursoId], references: [id])
+  preguntas   PreguntaEvaluacion[]
   respuestas  RespuestaUsuario[]
+}
+
+model PreguntaEvaluacion {
+  id                Int        @id @default(autoincrement())
+  evaluacionId      Int
+  enunciado         String     @db.Text
+  opciones          String     @db.Text // JSON string array
+  respuestaCorrecta String     @db.Text
+  audioUrl          String?
+  orden             Int        @default(1)
+  
+  evaluacion        Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
 }
 
 model RespuestaUsuario {
